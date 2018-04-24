@@ -12,7 +12,8 @@ params = [
     '-single_edge_counter_threshold', '5',      # prog krawedzi grafu de Bruin :5(parametr-single_edge_counter_threshold)
     '-output_file_name', 'de_novo_output',     	# nazwa pliku wyjsciowego
     '-i1_1', 'Sim_100_400_1.fq',
-    '-i1_2', 'Sim_100_400_2.fq'
+    '-i1_2', 'Sim_100_400_2.fq',
+    '-bfcounter_threshold', '2',
 ]
 
 call(cmd + params)
