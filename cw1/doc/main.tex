@@ -14,6 +14,9 @@
 \author{Mateusz Chydziński, Michał Sypetkowski}
 \maketitle
 
+\section{Ogólne informacje}
+Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}
+
 
 \section{Generowanie odczytów}
 \begin{verbatim}
@@ -46,6 +49,65 @@
 
 
 \subsection {Sprawdzenie wyników}
-TODO
+
+Użyliśmy wygenerowanego pliku report.tex :
+
+\begin{table}[ht]
+\begin{center}
+\caption{All statistics are based on contigs of size $\geq$ 500 bp, unless otherwise noted (e.g., "\# contigs ($\geq$ 0 bp)" and "Total length ($\geq$ 0 bp)" include all contigs).}
+\begin{tabular}{|l*{1}{|r}|}
+\hline
+Assembly & de\_novo\_output \\ \hline
+\# contigs ($\geq$ 0 bp) & 530 \\ \hline
+\# contigs ($\geq$ 1000 bp) & 113 \\ \hline
+\# contigs ($\geq$ 5000 bp) & 100 \\ \hline
+\# contigs ($\geq$ 10000 bp) & 93 \\ \hline
+\# contigs ($\geq$ 25000 bp) & 76 \\ \hline
+\# contigs ($\geq$ 50000 bp) & 56 \\ \hline
+Total length ($\geq$ 0 bp) & 12079573 \\ \hline
+Total length ($\geq$ 1000 bp) & 12001628 \\ \hline
+Total length ($\geq$ 5000 bp) & 11965296 \\ \hline
+Total length ($\geq$ 10000 bp) & 11907746 \\ \hline
+Total length ($\geq$ 25000 bp) & 11627000 \\ \hline
+Total length ($\geq$ 50000 bp) & 10894418 \\ \hline
+\# contigs & 121 \\ \hline
+Largest contig & 708120 \\ \hline
+Total length & 12007762 \\ \hline
+Reference length & 5369772 \\ \hline
+GC (\%) & 67.31 \\ \hline
+Reference GC (\%) & 67.32 \\ \hline
+N50 & 239670 \\ \hline
+NG50 & 437262 \\ \hline
+N75 & 131596 \\ \hline
+NG75 & 317536 \\ \hline
+L50 & 17 \\ \hline
+LG50 & 5 \\ \hline
+L75 & 33 \\ \hline
+LG75 & 9 \\ \hline
+\# misassemblies & 7 \\ \hline
+\# misassembled contigs & 7 \\ \hline
+Misassembled contigs length & 2025014 \\ \hline
+\# local misassemblies & 274 \\ \hline
+\# unaligned mis. contigs & 0 \\ \hline
+\# unaligned contigs & 0 + 11 part \\ \hline
+Unaligned length & 171260 \\ \hline
+Genome fraction (\%) & 99.191 \\ \hline
+Duplication ratio & 2.222 \\ \hline
+\# N's per 100 kbp & 2513.48 \\ \hline
+\# mismatches per 100 kbp & 0.26 \\ \hline
+\# indels per 100 kbp & 9.31 \\ \hline
+Largest alignment & 691166 \\ \hline
+Total aligned length & 11719348 \\ \hline
+NA50 & 205870 \\ \hline
+NGA50 & 418686 \\ \hline
+NA75 & 118910 \\ \hline
+NGA75 & 264348 \\ \hline
+LA50 & 19 \\ \hline
+LGA50 & 6 \\ \hline
+LA75 & 37 \\ \hline
+LGA75 & 11 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
 
 \end{document}
