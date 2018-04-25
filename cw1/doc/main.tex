@@ -15,10 +15,18 @@
 \maketitle
 
 \section{Ogólne informacje}
-Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}
+Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}.
+W katalogu \texttt{cw1} repozytorim zawiera skrypty/polecenia użyte do przeprowadzenia eksperymentów.
+
+W doświadczeniu wykorzystany został genom bakterii Azorhizobium caulinodans ORS 571.
+Długość tego genomu wynosi 5369772 par nukleotydów,
+co oznacza że nie jest to złożony orgaznim.
 
 
 \section{Generowanie odczytów}
+
+Wygenerowaliśmy przykładowe odczyty sekwencji genomu za pomocą narzędzia pirs.
+
 \begin{verbatim}
 [pIRS] Bases in reference sequences:    5369772
 [pIRS] Read pairs simulated:            1342443
@@ -38,6 +46,21 @@ Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}
 
 \section{Assembling de novo}
 
+W kolejnym etapie narzędzie dnaasm dokonało assemblingu "de novo" sekwencji,
+bazując na symulowanych odczytach.
+
+Jakość assemblingu obrazuje raport uzyskany z narzędzia quast (tabela \ref{fig:table1}).
+Uzyskano w sumie 530 kontigów, z czego znaczna większość (417) jest długości mniejszej niż 1000 bp.
+
+Najmniej kontigów mieści się w przedziale (1000 bp, 25000 bp)
+-- jest ich jedynie 7. Najdłuższy wskazany kontig ma długość 708120 bp.
+Zawartość procentowa kwasów nukleinowych G-C wynosi 67.31,
+co różni się jedynie o 0.01 punktu procentowego od wartości referencyjnej.
+Stanowi to zdroworozsądkowy warunek konieczny dobrej jakości assemblingu
+(stosunek kwasów G-C do A-T w oryginalnym genomie został zachowany).
+Łączna długość źle zassemblowanych contigów w stosunku do łącznej długości wszystkich, wyniósł 16,76\%.
+
+Część logów z assemblingu:
 \begin{verbatim}
 [2018-Apr-24 21:03:24.766157] [info] - num of sequences: 530
 [2018-Apr-24 21:03:24.766199] [info] - sum: 12079573
@@ -47,14 +70,11 @@ Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}
 [2018-Apr-24 21:03:24.766230] [info] - N50: 239670
 \end{verbatim}
 
-
-\subsection {Sprawdzenie wyników}
-
-Użyliśmy wygenerowanego pliku report.tex :
-
 \begin{table}[ht]
 \begin{center}
-\caption{All statistics are based on contigs of size $\geq$ 500 bp, unless otherwise noted (e.g., "\# contigs ($\geq$ 0 bp)" and "Total length ($\geq$ 0 bp)" include all contigs).}
+\caption{All statistics are based on contigs of size $\geq$ 500 bp, unless otherwise noted (e.g., "\# contigs ($\geq$ 0 bp)" and "Total length ($\geq$ 0 bp)" include all contigs).
+\label{fig:table1}
+}
 \begin{tabular}{|l*{1}{|r}|}
 \hline
 Assembly & de\_novo\_output \\ \hline
@@ -109,7 +129,5 @@ LGA75 & 11 \\ \hline
 \end{tabular}
 \end{center}
 \end{table}
-
-W doświadczeniu wykorzystany został genom bakterii Azorhizobium caulinodans ORS 571. Długość tego genomu wynosi 5369772 par nukleotydów, co oznacza że nie jest to złożony orgaznim. W pierwszym kroku zostały wygenerowane odczyty sekwencji genomu za pomocą narzędzia pirs. W kolejnym etapie narzędzie dnaasm dokonało assemblingu "de novo" sekwencji, bazując na symulowanych odczytach. Jakość assemblingu obrazuje powyższy raport uzyskany z narzędzia quast. Uzyskano w sumie 530 kontigów, z czego znaczna większość (417) jest długości mniejszej niż 1000 bp. Najmniej kontigów mieści się w przedziale (1000 bp, 25000 bp) - jest ich jedynie 7. Najdłuższy wskazany kontig ma długość 708120 bp. Zawartość procentowa kwasów nukleinowych G-C wynosi 67.31,co różni się jedynie o 0.01 punktu procentowego od wartości referencyjnej. Świadczy to o dobrej jakości assemblingu, która zachowała stosunek kwasów G-C do A-T w oryginalnym genomie. 
 
 \end{document}
