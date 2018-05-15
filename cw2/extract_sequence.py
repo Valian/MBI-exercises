@@ -19,4 +19,4 @@ with open('/tmp/mbi2/genome.fa', 'r') as f:
 with open('/tmp/mbi2/single_scaffold.fa', 'w') as f:
     # header = (s.split('\n')[0]).split(' ')[0]
     # f.write(header + '\n' + '\n'.join(s.split('\n')[1:]))
-    f.write(s)
+    f.write('>'+s)
