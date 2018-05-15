@@ -19,36 +19,48 @@ Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}.
 W katalogu \texttt{cw2} repozytorim zawiera skrypty/polecenia użyte do przeprowadzenia eksperymentów.
 
 \section{Przygotowanie danych}
-Do badań została wykorzystana sekwencja genomu o identyfikatorze:
+Cały przykładowym genom zawiera 3035 kontigów fizycznych.
+Do badań wykorzystany został kontig fizyczny o identyfikatorze:
 \begin{verbatim}
->HDID_scaffold0000002 length=339929
+>HDID_scaffold0000001 length=355889
 \end{verbatim}
 
 \section{Maskowanie genomu}
 Ilość nukleotydów, która została zamaskowana w wyniku działania programu RepeatMasker:
 \begin{verbatim}
-2497
+2478
 \end{verbatim}
 
 \section{Mapowanie znanych sekwencji i adnotacja strukturalna}
 Pierwsze 10 linii z logu programu maker:
 \begin{verbatim}
 ##gff-version 3
-HDID_scaffold0000002    .       contig  1       339929  .       .       .       ID=HDID_scaffold0000002;Name=HDID_scaffold0000002
+HDID_scaffold0000001	.	contig	1	355889	.	.	.	ID=HDID_scaffold0000001;Name=HDID_scaffold0000001
 ###
-HDID_scaffold0000002    repeatmasker    match   21      131     227     +       .       ID=HDID_scaffold0000002:hit:0:1.3.0.0;Name=species:Gypsy-24_LMi-I|genus:LTR%2FGypsy;Target=species:Gypsy-24_LMi-I|genus:LTR%2FGypsy 417 529 +
-HDID_scaffold0000002    repeatmasker    match_part      21      131     227     +       .       ID=HDID_scaffold0000002:hsp:0:1.3.0.0;Parent=HDID_scaffold0000002:hit:0:1.3.0.0;Target=species:Gypsy-24_LMi-I|genus:LTR%252FGypsy 417 529 +
-HDID_scaffold0000002    repeatmasker    match   758     914     305     +       .       ID=HDID_scaffold0000002:hit:1:1.3.0.0;Name=species:SACI-7|genus:LTR%2FGypsy;Target=species:SACI-7|genus:LTR%2FGypsy 3470 3626 +
-HDID_scaffold0000002    repeatmasker    match_part      758     914     305     +       .       ID=HDID_scaffold0000002:hsp:1:1.3.0.0;Parent=HDID_scaffold0000002:hit:1:1.3.0.0;Target=species:SACI-7|genus:LTR%252FGypsy 3470 3626 +
-HDID_scaffold0000002    repeatmasker    match   1222    1277    263     +       .       ID=HDID_scaffold0000002:hit:2:1.3.0.0;Name=species:GYPSY1-I_CS|genus:LTR%2FGypsy;Target=species:GYPSY1-I_CS|genus:LTR%2FGypsy 4029 4080 +
-HDID_scaffold0000002    repeatmasker    match_part      1222    1277    263     +       .       ID=HDID_scaffold0000002:hsp:2:1.3.0.0;Parent=HDID_scaffold0000002:hit:2:1.3.0.0;Target=species:GYPSY1-I_CS|genus:LTR%252FGypsy 4029 4080 +
-HDID_scaffold0000002    repeatmasker    match   2161    2911    1000    +       .       ID=HDID_scaffold0000002:hit:3:1.3.0.0;Name=species:Mariner-9_HSal|genus:DNA%2FTcMar-Tc1;Target=species:Mariner-9_HSal|genus:DNA%2FTcMar-Tc1 410 1106 +
+HDID_scaffold0000001	repeatmasker	match	7846	9011	1224	+	.	ID=HDID_scaffold0000001:hit:0:1.3.0.0;Name=species:Mariner-6_ACe|genus:DNA%2FTcMar-Tc1;Target=species:Mariner-6_ACe|genus:DNA%2FTcMar-Tc1 1 1094 +
+HDID_scaffold0000001	repeatmasker	match_part	7846	9011	1224	+	.	ID=HDID_scaffold0000001:hsp:0:1.3.0.0;Parent=HDID_scaffold0000001:hit:0:1.3.0.0;Target=species:Mariner-6_ACe|genus:DNA%252FTcMar-Tc1 1 1094 +
+HDID_scaffold0000001	repeatmasker	match	42975	43896	707	+	.	ID=HDID_scaffold0000001:hit:1:1.3.0.0;Name=species:Mariner-6_CFl|genus:DNA%2FTcMar-Mariner;Target=species:Mariner-6_CFl|genus:DNA%2FTcMar-Mariner 262 1175 +
+HDID_scaffold0000001	repeatmasker	match_part	42975	43896	707	+	.	ID=HDID_scaffold0000001:hsp:1:1.3.0.0;Parent=HDID_scaffold0000001:hit:1:1.3.0.0;Target=species:Mariner-6_CFl|genus:DNA%252FTcMar-Mariner 262 1175 +
+HDID_scaffold0000001	repeatmasker	match	162805	163521	673	+	.	ID=HDID_scaffold0000001:hit:2:1.3.0.1;Name=species:Mariner-43_HSal|genus:DNA%2FTcMar-Mariner;Target=species:Mariner-43_HSal|genus:DNA%2FTcMar-Mariner 494 1199 +
+HDID_scaffold0000001	repeatmasker	match_part	162805	163521	673	+	.	ID=HDID_scaffold0000001:hsp:2:1.3.0.1;Parent=HDID_scaffold0000001:hit:2:1.3.0.1;Target=species:Mariner-43_HSal|genus:DNA%252FTcMar-Mariner 494 1199 +
+HDID_scaffold0000001	repeatmasker	match	163678	163840	231	+	.	ID=HDID_scaffold0000001:hit:3:1.3.0.1;Name=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner;Target=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner 185 347 +
 \end{verbatim}
 
 \section{Adnotacja funkcjonalna}
 Znaleziony w pliku .gff identyfikator sekwencji:
 \begin{verbatim}
-HDID_scaffold0000002	blastn	expressed_sequence_match	10796	20674	262	+	.	ID=HDID_scaffold0000002:hit:23:3.2.0.0;Name=HDID_0000677101-mRNA-1
+HDID_scaffold0000001	blastn	expressed_sequence_match	17669	18426	40	-	.	ID=HDID_scaffold0000001:hit:16:3.2.0.0;Name=HDID_0000675501-mRNA-1
 \end{verbatim}
+
+Nukleotydy w tej sekwencji to:
+
+TAAAATCCAGAACAACAAGCCTTTTTCGGTTGGTTACTGTCCTGTTGGAGAGGAATAGTAGGCTTACTGCCCAATGGAAGGGCATTATTGGAATTCACGGAGGGTGTTCCTACAATTTTAAGAATATCTTAACAAAAATCGCACTTGAAAAGTAGTCCTTACCTTCAAGAAGGGTGGAAAAAGCTCGATCGACATTGGTTGAGTCTAAGGCTGATGTTTCAATGAAGTGAAGACAAGTATCTTCAGCGAATTGCTTGGCTTCTTGCGTAGAAACCGTACGCAGATGGCGCAGATCACATTTATTTCCAACTAATATGGTGACAATATTTCGATCAGCATTATTCTTAAGTTCCTTCAACCATACGTTCACATTTTCAAAAGTAGTGTACTTAGCTATATCATATACAAGCAGAGCTCCAACAGCACCGCGATAATACCTATAGAAAACAGAACTAATTATAGAAAAATACTCAACTTACGCTGACGTTATTGCTCTGTATCTTTCTTGGCCGGCTGTATCCCAAATTTGGATTTTTATAACCTTATCACCTATCTTAACACTCCTGGTTGCGAATTCAACGCCGATTGTGGTTTTACTCTCCAAGTTAAATTGATTACGAGTGTATCGAGAGAGTAGATTGCTCTTACCGACACCTGAATCCCCTATTAATACGACTAAAATATATAAGAAATGATTAATTAAAAGAAAATAAATACTTTTGAAAAGGTAATCATATGAATCTTCATCGTTGGCCAT
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{result.png}
+    \label{fig:single}
+    \caption[]{Wyniki z blastx}
+\end{figure}
 
 \end{document}
