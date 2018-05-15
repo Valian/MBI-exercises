@@ -18,4 +18,37 @@
 Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}.
 W katalogu \texttt{cw2} repozytorim zawiera skrypty/polecenia użyte do przeprowadzenia eksperymentów.
 
+\section{Przygotowanie danych}
+Do badań została wykorzystana sekwencja genomu o identyfikatorze:
+\begin{verbatim}
+>HDID_scaffold0000002 length=339929
+\end{verbatim}
+
+\section{Maskowanie genomu}
+Ilość nukleotydów, która została zamaskowana w wyniku działania programu RepeatMasker:
+\begin{verbatim}
+2497
+\end{verbatim}
+
+\section{Mapowanie znanych sekwencji i adnotacja strukturalna}
+Pierwsze 10 linii z logu programu maker:
+\begin{verbatim}
+##gff-version 3
+HDID_scaffold0000002    .       contig  1       339929  .       .       .       ID=HDID_scaffold0000002;Name=HDID_scaffold0000002
+###
+HDID_scaffold0000002    repeatmasker    match   21      131     227     +       .       ID=HDID_scaffold0000002:hit:0:1.3.0.0;Name=species:Gypsy-24_LMi-I|genus:LTR%2FGypsy;Target=species:Gypsy-24_LMi-I|genus:LTR%2FGypsy 417 529 +
+HDID_scaffold0000002    repeatmasker    match_part      21      131     227     +       .       ID=HDID_scaffold0000002:hsp:0:1.3.0.0;Parent=HDID_scaffold0000002:hit:0:1.3.0.0;Target=species:Gypsy-24_LMi-I|genus:LTR%252FGypsy 417 529 +
+HDID_scaffold0000002    repeatmasker    match   758     914     305     +       .       ID=HDID_scaffold0000002:hit:1:1.3.0.0;Name=species:SACI-7|genus:LTR%2FGypsy;Target=species:SACI-7|genus:LTR%2FGypsy 3470 3626 +
+HDID_scaffold0000002    repeatmasker    match_part      758     914     305     +       .       ID=HDID_scaffold0000002:hsp:1:1.3.0.0;Parent=HDID_scaffold0000002:hit:1:1.3.0.0;Target=species:SACI-7|genus:LTR%252FGypsy 3470 3626 +
+HDID_scaffold0000002    repeatmasker    match   1222    1277    263     +       .       ID=HDID_scaffold0000002:hit:2:1.3.0.0;Name=species:GYPSY1-I_CS|genus:LTR%2FGypsy;Target=species:GYPSY1-I_CS|genus:LTR%2FGypsy 4029 4080 +
+HDID_scaffold0000002    repeatmasker    match_part      1222    1277    263     +       .       ID=HDID_scaffold0000002:hsp:2:1.3.0.0;Parent=HDID_scaffold0000002:hit:2:1.3.0.0;Target=species:GYPSY1-I_CS|genus:LTR%252FGypsy 4029 4080 +
+HDID_scaffold0000002    repeatmasker    match   2161    2911    1000    +       .       ID=HDID_scaffold0000002:hit:3:1.3.0.0;Name=species:Mariner-9_HSal|genus:DNA%2FTcMar-Tc1;Target=species:Mariner-9_HSal|genus:DNA%2FTcMar-Tc1 410 1106 +
+\end{verbatim}
+
+\section{Adnotacja funkcjonalna}
+Znaleziony w pliku .gff identyfikator sekwencji:
+\begin{verbatim}
+HDID_scaffold0000002	blastn	expressed_sequence_match	10796	20674	262	+	.	ID=HDID_scaffold0000002:hit:23:3.2.0.0;Name=HDID_0000677101-mRNA-1
+\end{verbatim}
+
 \end{document}
