@@ -1,5 +1,7 @@
 #!/bin/env python3
 import glob
+from itertools import zip_longest
+
 file = glob.glob(
     '/tmp/mbi2/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/**/**/**/*.gff')
 assert len(file) == 1
@@ -26,4 +28,9 @@ print('Nucleotides of the sequence')
 with open('/tmp/mbi2/single_scaffold.fa', 'r') as f:
     nucleotides = f.read().split('\n')
     nucleotides = ''.join(nucleotides[1:])
-    print(nucleotides[int(i):int(j)])
+    nucleotides = nucleotides[int(i):int(j)]
+
+    # display in lines of max length 60
+    nucleotides = list(zip_longest(*[iter(nucleotides)]*60))
+    nucleotides = [''.join([j for j in i if j]) for i in nucleotides]
+    print('\n'.join(nucleotides))
