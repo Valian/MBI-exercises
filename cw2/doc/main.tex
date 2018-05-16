@@ -59,7 +59,13 @@ W naszym eksperymencie, ilość nukleotydów która została zamaskowana w wynik
 
 \section{Mapowanie znanych sekwencji i adnotacja strukturalna}
 
-Program maker na podstawie otrzymanej sekwencji z zamaskowanymi powtórzeniami, tworzy adnotacje strukturalne genów w formacie GFF3.
+% MAKER is a program that produces gene annotations in GFF3 format using
+% evidence such as EST alignments and protein homology. MAKER can be used to
+% produce gene annotations for new genomes as well as update annotations
+% from existing genome databases.
+
+Program maker na podstawie otrzymanej sekwencji z zamaskowanymi powtórzeniami
+oraz danych białek i mRNA, tworzy adnotacje strukturalne genów w formacie GFF3.
 Pierwsze 10 linii z logu programu maker:
 \begin{lstlisting}
 ##gff-version 3
@@ -74,8 +80,7 @@ HDID_scaffold0000001	repeatmasker	match_part	162805	163521	673	+	.	ID=HDID_scaff
 HDID_scaffold0000001	repeatmasker	match	163678	163840	231	+	.	ID=HDID_scaffold0000001:hit:3:1.3.0.1;Name=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner;Target=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner 185 347 +
 \end{lstlisting}
 
-\section{Adnotacja funkcjonalna}
-Znaleziony w pliku .gff (wygenerowanego przez program maker) identyfikator sekwencji:
+Znaleziony w pliku .gff (wygenerowanego przez program maker) przykładowy identyfikator sekwencji:
 \begin{lstlisting}
 HDID_scaffold0000001	blastn	expressed_sequence_match	17669	18426	40	-	.	ID=HDID_scaffold0000001:hit:16:3.2.0.0;Name=HDID_0000675501-mRNA-1
 \end{lstlisting}
@@ -100,11 +105,12 @@ TGAAAAGGTAATCATATGAATCTTCATCGTTGGCCAT
 
 
 \section{Adnotacja funkcjonalna}
-Genom użyty w badaniu należy do organizmu \texttt{hymenolepis diminuta}, czyli tasiemca szczurzego. Analiza podobieństwa sekwencji za pomocą 
-algorytmu BlastX została przeprowadzaona dla scaffoldu pierwszego, o oznaczeniu \texttt{HDID\_scaffold0000001}.
+Genom użyty w badaniu należy do organizmu \texttt{hymenolepis diminuta}, czyli tasiemca szczurzego.
+Analiza podobieństwa sekwencji za pomocą algorytmu BlastX została przeprowadzaona dla scaffoldu pierwszego,
+o oznaczeniu \texttt{HDID\_scaffold0000001}.
 
-W wyniku działania algorytmu (rysunek \ref{fig:result}). zostały znalezione 4 sekwencje, o znacznym stopniu podobieństwa
-(94\% dla 1 sekwencji oraz 100\% dla 3 pozostałych -- w tym również badana sekwencja tasiemca szczurzego).
+W wyniku działania algorytmu (rysunek \ref{fig:result}), zostały znalezione 4 sekwencje o znacznym stopniu podobieństwa
+(94\% dla 1 sekwencji oraz 100\% dla 3 pozostałych -- w tym również dla badanej sekwencji tasiemca szczurzego).
 Istotność wyniku \texttt{E-value} jest na poziomie około \texttt{0.004},
 co spełnia warunek \texttt{E<<1} i sprawia, że prawdopobieństwo przypadkowego dopasowania
 sekwencji źródłowej do znalezionych jest bardzo małe.
@@ -118,7 +124,7 @@ patogennego grzyba (sekwencja kodująca jedno z białek oraz chromosom nr.1). Os
     \centering
     \includegraphics[width=1.0\textwidth]{result.png}
     \label{fig:result}
-    \caption[]{Wyniki z blastx}
+    \caption[]{Wyniki algorytmu BLASTX z bazy NCBI}
 \end{figure}
 
 \end{document}
