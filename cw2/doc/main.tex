@@ -80,10 +80,15 @@ HDID_scaffold0000001	repeatmasker	match_part	162805	163521	673	+	.	ID=HDID_scaff
 HDID_scaffold0000001	repeatmasker	match	163678	163840	231	+	.	ID=HDID_scaffold0000001:hit:3:1.3.0.1;Name=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner;Target=species:Mariner-25_HSal|genus:DNA%2FTcMar-Mariner 185 347 +
 \end{lstlisting}
 
-Znaleziony w pliku .gff (wygenerowanego przez program maker) przykładowy identyfikator sekwencji:
+Przykładowa annotacja typu \texttt{expressed\_sequence\_match} w pliku .gff (wygenerowanego przez program maker):
 \begin{lstlisting}
 HDID_scaffold0000001	blastn	expressed_sequence_match	17669	18426	40	-	.	ID=HDID_scaffold0000001:hit:16:3.2.0.0;Name=HDID_0000675501-mRNA-1
 \end{lstlisting}
+
+Źródłem tej annotacji jest program blastn, zwracający najbardziej podobne sekwencje DNA z bazy danych.
+W naszym przypadku bazą danych jest plik z sekwencją mRNA (zbiorem scaffoldów) dla tasiemca
+(sekwencja została dopasowana do scaffolda o identyfikatorze \texttt{HDID\_0000675501-mRNA-1}).
+
 
 Nukleotydy w tej sekwencji to:
 
