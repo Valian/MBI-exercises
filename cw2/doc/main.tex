@@ -25,19 +25,41 @@ Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}.
 W katalogu \texttt{cw2} repozytorim zawiera skrypty/polecenia użyte do przeprowadzenia eksperymentów.
 
 \section{Przygotowanie danych}
-Cały przykładowym genom zawiera 3035 kontigów fizycznych.
+W doświadczeniu wykorzystany został genom tasiemca (hymenolepis diminuta).
+Cały ten genom (wyniki jego assemblingu) zawiera 3035 kontigów fizycznych (scaffolds).
 Do badań wykorzystany został kontig fizyczny o identyfikatorze:
 \begin{verbatim}
 >HDID_scaffold0000001 length=355889
 \end{verbatim}
 
 \section{Maskowanie genomu}
-Ilość nukleotydów, która została zamaskowana w wyniku działania programu RepeatMasker:
-\begin{verbatim}
-2478
-\end{verbatim}
+% RepeatMasker is a program that screens DNA sequences for interspersed
+% repeats and low complexity DNA sequences. The output of the program is
+% a detailed annotation of the repeats that are present in the query
+% sequence as well as a modified version of the query sequence in which
+% all the annotated repeats have been masked (default: replaced by
+% Ns). Sequence comparisons in RepeatMasker are performed by the program
+% cross_match, an efficient implementation of the Smith-Waterman-Gotoh
+% algorithm developed by Phil Green, or by WU-Blast developed by Warren
+% Gish.
+
+Program RepeatMasker maskuje sekwencje DNA pod względem powtórzeń oraz sekwencji DNA o niskiej złożoności.
+Sekwencje są porównywane algorytmem Smitha-Watermana-Gotoha (zoptymalizowana wersja algorytmu Smitha-Watermana).
+Wyjście programu to przede wszystkim:
+\begin{itemize}
+    \item sekwencja wejściowa, z zamaskowanymi powtórzeniami (plik .masked).
+             Powtórzone podsekwencjie zostają zastąpione literami N.
+    \item lista zamaskowanych powtórzeń z ich annotacjami.
+            (plik .out).
+            Adnotacje zawierają między innymi informację o powodzie uznania sekwencji za powtórzenie
+            (niska złożoność sekwencji lub proste powtórzenie).
+\end{itemize}
+
+W naszym eksperymencie, ilość nukleotydów która została zamaskowana w wyniku działania programu to 2478.
 
 \section{Mapowanie znanych sekwencji i adnotacja strukturalna}
+
+Program maker na podstawie otrzymanej sekwencji z zamaskowanymi powtórzeniami, tworzy adnotacje strukturalne genów w formacie GFF3.
 Pierwsze 10 linii z logu programu maker:
 \begin{lstlisting}
 ##gff-version 3
@@ -53,7 +75,7 @@ HDID_scaffold0000001	repeatmasker	match	163678	163840	231	+	.	ID=HDID_scaffold00
 \end{lstlisting}
 
 \section{Adnotacja funkcjonalna}
-Znaleziony w pliku .gff identyfikator sekwencji:
+Znaleziony w pliku .gff (wygenerowanego przez program maker) identyfikator sekwencji:
 \begin{lstlisting}
 HDID_scaffold0000001	blastn	expressed_sequence_match	17669	18426	40	-	.	ID=HDID_scaffold0000001:hit:16:3.2.0.0;Name=HDID_0000675501-mRNA-1
 \end{lstlisting}
@@ -76,21 +98,27 @@ CCCCTATTAATACGACTAAAATATATAAGAAATGATTAATTAAAAGAAAATAAATACTTT
 TGAAAAGGTAATCATATGAATCTTCATCGTTGGCCAT
 \end{verbatim}
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\textwidth]{result.png}
-    \label{fig:single}
-    \caption[]{Wyniki z blastx}
-\end{figure}
 
 \section{Adnotacja funkcjonalna}
 Genom użyty w badaniu należy do organizmu \texttt{hymenolepis diminuta}, czyli tasiemca szczurzego. Analiza podobieństwa sekwencji za pomocą 
-algorytmu BlastX została przeprowadzaona dla scaffoldu pierwszego, o oznaczeniu \texttt{HDID\_scaffold0000001}. W wyniku działania algorytmu
-zostały znalezione 4 sekwencje podobne, o znacznym stopniu podobieństwa (94\% dla 1 sekwencji oraz 100\% dla 3 pozostałych). Istotność wyniku 
-\texttt{E-value} jest na poziomie około \texttt{0.004}, co spełnia warunek \texttt{E<<1} i sprawia, że prawdopobieństwo przypadkowego dopasowania
-sekwencji źródłowej do znalezionych jest bardzo małe. Pierwszy wynik na liście potwierdza, że jest to rzeczywiście poprawny scaffold tego organizmu
+algorytmu BlastX została przeprowadzaona dla scaffoldu pierwszego, o oznaczeniu \texttt{HDID\_scaffold0000001}.
+
+W wyniku działania algorytmu (rysunek \ref{fig:result}). zostały znalezione 4 sekwencje, o znacznym stopniu podobieństwa
+(94\% dla 1 sekwencji oraz 100\% dla 3 pozostałych -- w tym również badana sekwencja tasiemca szczurzego).
+Istotność wyniku \texttt{E-value} jest na poziomie około \texttt{0.004},
+co spełnia warunek \texttt{E<<1} i sprawia, że prawdopobieństwo przypadkowego dopasowania
+sekwencji źródłowej do znalezionych jest bardzo małe.
+
+Pierwszy wynik na liście potwierdza, że jest to rzeczywiście poprawny scaffold tego organizmu
 (stopień podobieństwa 100\% oraz E-value=0). Ponadto stwierdzono duży stopień podobieństwa sekwencji do \texttt{Candida dubliniensis} - odmiany
 patogennego grzyba (sekwencja kodująca jedno z białek oraz chromosom nr.1). Ostatnim wpisem na liście wyników jest jedno z białek orgaznizmu
 \texttt{chenopodium quinoa}, czyli rośliny - komosy ryżowej. 
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{result.png}
+    \label{fig:result}
+    \caption[]{Wyniki z blastx}
+\end{figure}
 
 \end{document}
