@@ -30,7 +30,9 @@ print('Nucleotides of the sequence')
 with open('/tmp/mbi2/single_scaffold.fa', 'r') as f:
     nucleotides = f.read().split('\n')
     nucleotides = ''.join(nucleotides[1:])
-    nucleotides = nucleotides[int(i):int(j)]
+
+    # i and j are 1-base offsets
+    nucleotides = nucleotides[int(i)-1:int(j)-1]
 
     # display in lines of max length 60
     nucleotides = list(zip_longest(*[iter(nucleotides)]*60))
