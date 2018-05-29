@@ -24,4 +24,23 @@ breaklines=true
 Repozytorium git: \url{https://github.com/msypetkowski/MBI-exercises.git}.
 W katalogu \texttt{cw3} repozytorim zawiera skrypty/polecenia użyte do przeprowadzenia eksperymentów.
 
+\section{Mapowanie}
+
+Najpierw indeksujemy plik FASTA (w pliku jest jedna sekwencja) genomu referencyjnego.
+
+Następnie generujemy plik SAM (Sequence Alignment Map) za pomocą algorytmu bwa mem.
+Plik ten zawiera zbiór mapowań sekwencji na (ang. aligned to) do sekwencji referencyjnej.
+W naszym przypadku sekwencja referencyjna to plik chr1.fa,
+a na tą sekwencę mapujemy sekwencje (odczyty z sekwencera)
+z pliku coriell_chr1.fq (zawiera on około 284k sekwencji).
+Plik SAM zawiera mapowania kolejnych sekwencji z pliku coriell_chr1.fg.
+
+Następnie sortujemy te mapowania (mapowanie zawiera przy okazji sekwencje)
+oraz tworzymy ich binarną reprezentację (plik BAM).
+Stąd plik SAM ma 73MB, a BAM 14MB (mniej).
+Plik FASTQ ze zbiorem sekwencji zawiera 55M --
+mniej niż SAM, bo nie informacji o mapowaniu na genom referencyjny.
+
+Średnia długość sekwencji odczytu to TODO.
+
 \end{document}
