@@ -26,7 +26,8 @@ W katalogu \texttt{cw3} repozytorim zawiera skrypty/polecenia użyte do przeprow
 
 \section{Mapowanie}
 
-Najpierw indeksujemy plik FASTA (w pliku jest jedna sekwencja) genomu referencyjnego.
+Najpierw indeksujemy plik FASTA (w pliku jest jedna sekwencja) genomu referencyjnego człowieka --
+u nas tylko chromosom 1.
 
 Następnie generujemy plik SAM (Sequence Alignment Map) za pomocą algorytmu bwa mem.
 Plik ten zawiera zbiór mapowań sekwencji na (ang. aligned to) do sekwencji referencyjnej.
@@ -36,13 +37,31 @@ z pliku coriell\_chr1.fq (zawiera on około 284k sekwencji).
 Plik SAM zawiera mapowania kolejnych sekwencji z pliku coriell\_chr1.fg.
 
 Następnie sortujemy te mapowania (mapowanie zawiera przy okazji sekwencje)
-oraz tworzymy ich binarną reprezentację (plik BAM).
+i tworzymy ich binarną reprezentację (plik BAM).
 Stąd plik SAM ma 73MB, a BAM 14MB (mniej).
-Plik FASTQ ze zbiorem sekwencji zawiera 55M --
-mniej niż SAM, bo nie informacji o mapowaniu na genom referencyjny.
-Plik FASTQ zawiera sekwencje (odczyty) i "quality value characters" dla każdej sekwencji równe jej długości.
-Plik SAM również zawiera sekwencje (tyle samo i takiej samej długości co FASTQ) i analogicznie "quality value characters".
+
+Plik FASTQ zawiera sekwencje (odczyty) i "quality value characters"
+dla każdej sekwencji równe jej długości.
+Plik SAM również zawiera sekwencje (tyle samo i takiej samej długości co FASTQ - 
+ale są to dopasowane sekwencje z genomu referencyjnego a nie z odczytów)
+i analogicznie odpowiadające "quality value characters".
+Plik FASTQ ze ma rozmiar 55M --
+mniej niż SAM, bo nie zawiera informacji o mapowaniu na genom referencyjny.
 
 Średnia długość sekwencji odczytu to 75.5 z odchyleniem standardowym 1.17.
+
+\section{Wizualizacja w IGV oraz przykładowy wariant w genie IQGAP3}  
+
+Pozycja przykładowego wariantu to 156,496,188.
+Referencyjny genom zawiera nukleotyd A a odczyty wskazują G.
+81 odczytów wskazuje na wariant i żaden na referencje.
+Zrzut ekranu z IGV jest na rysunku \ref{fig:igv}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{sampleVariant.png}
+    \label{fig:igv}
+    \caption[]{Przykładowy wariant w oknie IGV}
+\end{figure}
 
 \end{document}
