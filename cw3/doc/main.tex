@@ -72,7 +72,12 @@ Ilość wariantów bez filtracji to 6050, po filtracji -- 241.
 % TODO
 
 \section{Adnotacje wariantów}  
-% TODO
-
-
+Po przeanalizowaniu pliku VCF narzędziem Variant Effect Predictor otrzymano wykres kołowy wariantów, na którym dominujący jest intron_variant: 36\%.
+Wiersze odpowiadające temu wariantowi:
+\begin{verbatim}
+.	1:156496188-156496188	G	3_prime_UTR_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000361170	protein_coding	38/38	-	-	-	4997	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+.	1:156496188-156496188	G	upstream_gene_variant	MODIFIER	snoU13	ENSG00000238843	Transcript	ENST00000458777	snoRNA	-	-	-	-	-	-	-	-	-	rs6427315	2934	1	-	RFAM	-	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+.	1:156496188-156496188	G	3_prime_UTR_variant,NMD_transcript_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000491900	nonsense_mediated_decay	37/38	-	-	-	4973	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+\end{verbatim}
+Jest to wariant w sekwencji kodującej (świadczy o tym wartość protein_coding w kolumnie Exon) w pierwszym wierszu powyższego listingu.
 \end{document}
