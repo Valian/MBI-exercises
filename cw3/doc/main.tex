@@ -73,9 +73,14 @@ Ilość wariantów bez filtracji to 6050, po filtracji -- 241.
 
 \section{Adnotacje wariantów}  
 Po przeanalizowaniu pliku VCF narzędziem Variant Effect Predictor otrzymano wykres kołowy wariantów, na którym dominujący jest intron\_variant: 36\%.
-Wiersze odpowiadające temu wariantowi (3 wiersze):
+Wiersze odpowiadające temu wariantowi (3 wiersze) są w tabeli \ref{table:3lines}.
 
 
+\begin{table}[H]
+    \caption{
+    \label{table:3lines}
+    }
+\begin{center}
 \begin{tabular}{| p{150mm} |}
     \hline
     \verb|.	1:156496188-156496188	G	3_prime_UTR_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000361170	protein_coding	38/38	-	-	-	4997	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-|
@@ -88,6 +93,8 @@ Wiersze odpowiadające temu wariantowi (3 wiersze):
     \\
     \hline
 \end{tabular}
+\end{center}
+\end{table}
 
 Jest to wariant w sekwencji kodującej (świadczy o tym wartość protein\_coding w kolumnie Exon) w pierwszym wierszu powyższego listingu.
 \section{Wnioski}
