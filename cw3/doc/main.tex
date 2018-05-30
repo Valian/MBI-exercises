@@ -73,12 +73,22 @@ Ilość wariantów bez filtracji to 6050, po filtracji -- 241.
 
 \section{Adnotacje wariantów}  
 Po przeanalizowaniu pliku VCF narzędziem Variant Effect Predictor otrzymano wykres kołowy wariantów, na którym dominujący jest intron\_variant: 36\%.
-Wiersze odpowiadające temu wariantowi:
-\begin{verbatim}
-.	1:156496188-156496188	G	3_prime_UTR_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000361170	protein_coding	38/38	-	-	-	4997	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-.	1:156496188-156496188	G	upstream_gene_variant	MODIFIER	snoU13	ENSG00000238843	Transcript	ENST00000458777	snoRNA	-	-	-	-	-	-	-	-	-	rs6427315	2934	1	-	RFAM	-	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-.	1:156496188-156496188	G	3_prime_UTR_variant,NMD_transcript_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000491900	nonsense_mediated_decay	37/38	-	-	-	4973	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
-\end{verbatim}
+Wiersze odpowiadające temu wariantowi (3 wiersze):
+
+
+\begin{tabular}{| p{150mm} |}
+    \hline
+    \verb|.	1:156496188-156496188	G	3_prime_UTR_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000361170	protein_coding	38/38	-	-	-	4997	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-|
+    \\
+    \hline
+\verb|.	1:156496188-156496188	G	upstream_gene_variant	MODIFIER	snoU13	ENSG00000238843	Transcript	ENST00000458777	snoRNA	-	-	-	-	-	-	-	-	-	rs6427315	2934	1	-	RFAM	-	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-|
+    \\
+    \hline
+\verb|.	1:156496188-156496188	G	3_prime_UTR_variant,NMD_transcript_variant	MODIFIER	IQGAP3	ENSG00000183856	Transcript	ENST00000491900	nonsense_mediated_decay	37/38	-	-	-	4973	-	-	-	-	rs6427315	-	-1	-	HGNC	20669	-	-	-	-	0.9383	0.7746	0.9841	1	1	1	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-|
+    \\
+    \hline
+\end{tabular}
+
 Jest to wariant w sekwencji kodującej (świadczy o tym wartość protein\_coding w kolumnie Exon) w pierwszym wierszu powyższego listingu.
 \section{Wnioski}
 Ćwiczenie polegało na analizie danych pozyskanych w trakcie resekwencjonowania fragmentu genomu człowieka. Przedmiotem badań był fragment sekwencji, dotyczący chromosomu pierwszego (chr1). Mapowanie danej sekwencji do sekwencji referencyjnej dostarczyło nam dodatkowych danych w postaci wykrytych wariantów. Dane z pliku SAM w sposób czytelny dla człowieka wizualizuje narzędzie IGV. Pozwala ono na sprawdzenie nie tylko faktu różnic w stosunku do genomu referencyjnego, ale także zmierzenie tej różnicy (liczba oznaczonych nukleotydów innych niż referencyjne, zsumowana dla wszystkich pokryć). Raport wygenerowany z filtrowanego pliku VCF poprzez narzędzie Variant Effect Predictor pozwolił dowiedzieć się o typie adnotowanych wariantów. Wiele z nich występuje w sekwencjach niekodujących - intronach (36\%) oraz transkryptach niekodujących (10\%). Spośród części kodujących, najwięcej jest wariantów synonimicznych (57\%), czyli takich, które kodują ten sam aminokwas. Jest to możliwe dlatego, że DNA jest "zdegenerowane", to znaczy istnieje kilka sekwencji (kodonów), które kodują ten sam aminokwas.
