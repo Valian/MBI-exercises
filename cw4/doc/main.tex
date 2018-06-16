@@ -26,8 +26,21 @@ W katalogu \texttt{cw4} repozytorim zawiera skrypty/polecenia użyte do przeprow
 
 
 \section{Liczenie pokrycia}
-Największa mediana pokrycia została zarejestrowana dla próbki \texttt{NA19137} i wynosi \texttt{76.03475}. Najmniejsza wyliczona
-mediana charakteryzuje próbkę o numerze \texttt{NA18991} a jej wartość to \texttt{21.06271}.
+
+Używamy przykładowych odczytów BAM z paczki WES
+(Whole Exome Sequencing)  -- sequencing of chromosome 22 401st to 500th exon from the 1000 Genomes (1KG).
+Łącznie jest 46 takich plików/fragmentów -- w formacie BAM.
+Każdy plik BAM to sekwencja (próbka -- 1 eksperyment) otrzymana z sekwencenowania tego samego kawałka chromosomu 22.
+
+Badamy pokrycie tych odczytów ze współrzędnymi regionów sekwencjonowanych metodą WES
+w projekcie 1000 Genomes. Mamy zadane 100 takich współrzędnych (par liczb całkowitych -- offsetów -- początek i koniec).
+
+Otrzymujemy macierz próbek z każdego pliku BAM pokrywających się z każdym ze 100 regionów,
+czyli macierz 100x46.
+
+Macierz medianujemy po 1 wymiarze otrzymując medianę pokrycia dla każdej próbki.
+Największa mediana pokrycia została zarejestrowana dla próbki \texttt{NA19137} i wynosi \texttt{76.03475}.
+Najmniejsza wyliczona mediana charakteryzuje próbkę o numerze \texttt{NA18991} a jej wartość to \texttt{21.06271}.
 
 
 \section{Wykrywanie zmian liczby kopii DNA przy użyciu narzędzia CODEX}
