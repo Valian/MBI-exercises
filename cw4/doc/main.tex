@@ -38,12 +38,14 @@ w projekcie 1000 Genomes. Mamy zadane 100 takich współrzędnych (par liczb ca�
 Otrzymujemy macierz próbek z każdego pliku BAM pokrywających się z każdym ze 100 regionów,
 czyli macierz 100x46.
 
-Macierz medianujemy po 1 wymiarze otrzymując medianę pokrycia dla każdej próbki.
+Macierz redukujemy (bierzemy medianę) po 1-szym wymiarze otrzymując medianę pokrycia dla każdej próbki.
 Największa mediana pokrycia została zarejestrowana dla próbki \texttt{NA19137} i wynosi \texttt{76.03475}.
 Najmniejsza wyliczona mediana charakteryzuje próbkę o numerze \texttt{NA18991} a jej wartość to \texttt{21.06271}.
 
 
 \section{Wykrywanie zmian liczby kopii DNA przy użyciu narzędzia CODEX}
+
+Mamy dane wyniki pokrycia dla 99 próbek z 1000 Genomes dla chromosomu 20.
 Statystyki kontroli jakości:
 \begin{verbatim}
 Excluded 279 exons due to extreme coverage.
@@ -64,14 +66,15 @@ After taking union, excluded 472 out of 4702 exons in QC.
 \end{verbatim}
 Zmieniła się zatem liczba wykluczonych eksonów - wykluczono \texttt{472}.
 
-Wykryto \texttt{438 zmian liczby kopii}. Wśród nich jest \texttt{264 duplikacji} i \texttt{174 delecji}.
+CODEX wykrył \texttt{438 zmian liczby kopii}. Wśród nich jest \texttt{264 duplikacji} i \texttt{174 delecji}.
 Występują \texttt{3 homozygotyczne delecje} (copy\_no == 0) dla próbek \texttt{NA18486, NA18912 oraz NA18965}:
+\footnotesize
 \begin{verbatim}
 
   sample_name chr cnv    st_bp    ed_bp length_kb st_exon ed_exon raw_cov norm_cov copy_no lratio    mBIC targetCount
-X.147     NA18486  20 del 56793551 56803479     9.929    3653    3655       0       21       0     21   0.677           2
-X.339     NA18912  20 del 56793551 56803479     9.929    3653    3655       0       21       0     21   0.677           2
-X.361     NA18965  20 del 61460052 61460361      0.31    4036    4037       0       24       0     24 320.948           1
+X.147     NA18486  20 del 56793551 56803479     9.929    3653    3655       0       21       0     21   0.677       2
+X.339     NA18912  20 del 56793551 56803479     9.929    3653    3655       0       21       0     21   0.677       2
+X.361     NA18965  20 del 61460052 61460361      0.31    4036    4037       0       24       0     24 320.948       1
 \end{verbatim}
 
 \begin{figure}[h]
@@ -80,8 +83,6 @@ X.361     NA18965  20 del 61460052 61460361      0.31    4036    4037       0   
     \label{fig:igv}
     \caption[]{Wykres dla zmiany numer 1}
 \end{figure}
-
-\section{Wnioski}
 
 
 \end{document}

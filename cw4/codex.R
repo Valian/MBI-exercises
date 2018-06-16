@@ -9,18 +9,21 @@ library(GenomicRanges)
 library(Rsubread)
 library(WES.1KG.WUGSC)
 library(CODEX)
-# set working directory to workDir
-workDir <- "/Users/Chydziex/OneDrive/Dokumenty/Studia/mbi/MBI-exercises/cw4/"
-setwd(workDir)
+workDir="./"
+
 #set number of available cores
 cores <- 4
 
-#Zde􏰁niuj nazw¦ projektu oraz utwórz katalog wyj±ciowy:
+#------------------------Zde􏰁niuj nazw¦ projektu oraz utwórz katalog wyj±ciowy:
   projectname <- "TGP99"
   outputDir <- paste0(workDir,"codex_output/")
   dir.create(outputDir)
-  #Zaaaduj wst¦pnie przeliczone dane o ga¦boko±ci pokrycia dla 99 próbek z 1000 Genomes i przygotuj dane dla chromosomu 20:
-    cfiles <- dir(paste0(workDir, "data/coverage/"), "*bam.coverage*")
+
+
+
+  #--------------------------------Zaaaduj wst¦pnie przeliczone dane o ga¦boko±ci pokrycia
+  # dla 99 próbek z 1000 Genomes i przygotuj dane dla chromosomu 20:
+  cfiles <- dir(paste0(workDir, "data/coverage/"), "*bam.coverage*")
   cdf <- rbindlist(mclapply(cfiles, function(f){
     print(f);
     df <- fread(paste0(workDir, "data/coverage/",f));
@@ -62,8 +65,12 @@ cores <- 4
   ref <- IRanges(start = targetsChr$Start, end = targetsChr$Stop)
   gc <- getgc(chr, ref)
   mapp <- getmapp(chr, ref)
-  #Przeprowad1 kontrol¦ jako±ci:
-    mapp_thresh <- 0.9 # remove exons with mapability < 0.9
+
+
+
+
+  #-------------------------------------------------Przeprowad1 kontrol¦ jako±ci:
+  mapp_thresh <- 0.9 # remove exons with mapability < 0.9
   cov_thresh_from <- 20 # remove exons covered by less than 20 reads
   cov_thresh_to <- 4000 #  remove exons covered by more than 4000 reads
   length_thresh_from <- 20 # remove exons of size < 20
@@ -79,9 +86,11 @@ cores <- 4
   mapp_qc <- qcObj$mapp_qc; ref_qc <- qcObj$ref_qc; qcmat <- qcObj$qcmat
   #Ile eksonów (regionów) zostaao usuni¦tych w wyniku kontroli jako±ci?
   #  Ile eksonów (regionów) b¦dzie usuni¦tych je»eli zmienimy progi odci¦cia za- warto±ci GC (gc_thresh_from, gc_thresh_to)? Podaj wynik dla wybranych przez Ciebie progów.
-  #Przeprowad1 normalizacj¦ ga¦boko±ci pokrycia oraz segmentacj¦:
-  
-  
+
+
+
+
+  #-----------------------------------------------Przeprowad1 normalizacj¦ ga¦boko±ci pokrycia oraz segmentacj¦:
   normObj <- normalize(Y_qc, gc_qc, K = 1:9)
   Yhat <- normObj$Yhat; AIC <- normObj$AIC; BIC <- normObj$BIC
   RSS <- normObj$RSS; K <- normObj$K
@@ -113,4 +122,3 @@ cores <- 4
   }
   cnvId <- 1    # indeks zmiany dla której zostanie sporz¡dzony wykres
   plotCall(finalcall, cnvId, Y_qc, Yhat[[optK]])
-  
