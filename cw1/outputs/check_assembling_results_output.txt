@@ -1,0 +1,90 @@
+WARNING: Python locale settings can't be changed
+/quast-4.6.3/quast.py -R sample_genome.fna de_novo_output
+
+Version: 4.6.3, 1f2766b
+
+System information:
+  OS: Linux-4.15.0-34-generic-x86_64-with-Ubuntu-14.04-trusty (linux_64)
+  Python version: 2.7.6
+  CPUs number: 4
+
+Started: 2019-11-10 13:30:47
+
+Logging to /tmp/quast_results/results_2019_11_10_13_30_47/quast.log
+NOTICE: Maximum number of threads is set to 1 (use --threads option to set it manually)
+
+CWD: /tmp
+Main parameters: 
+  Threads: 1, minimum contig length: 500, ambiguity: one, threshold for extensive misassembly size: 1000
+
+WARNING: Can't draw plots: python-matplotlib is missing or corrupted.
+
+Reference:
+  sample_genome.fna ==> sample_genome
+
+Contigs:
+  Pre-processing...
+  de_novo_output ==> de_novo_output
+
+2019-11-10 13:30:48
+Running Basic statistics processor...
+  Reference genome:
+    sample_genome.fna, length = 11388132, num fragments = 1, GC % = 68.71
+  Contig files: 
+    de_novo_output
+  Calculating N50 and L50...
+    de_novo_output, N50 = 118995, L50 = 57, Total length = 22915670, GC % = 68.66, # N's per 100 kbp =  2263.76
+Done.
+
+2019-11-10 13:30:49
+Running Contig analyzer...
+NOTICE: Previous try of E-MEM compilation was unsuccessful! For forced retrying, please remove /quast-4.6.3/quast_libs/MUMmer/make.emem.failed and restart QUAST. Currently, QUAST will use Nucmer which is absolutely fine, albeit slower.
+  de_novo_output
+  Logging to files /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/contigs_report_de_novo_output.stdout and contigs_report_de_novo_output.stderr...
+  Aligning contigs to the reference
+  MUMmer plot saved to /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/de_novo_output_mummerplot.html
+  Analysis is finished.
+  Gzipping /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/nucmer_output/de_novo_output.all_snps to reduce disk space usage...
+    saved to /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/nucmer_output/de_novo_output.all_snps.gz
+  Creating total report...
+    saved to /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /tmp/quast_results/results_2019_11_10_13_30_47/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+Done.
+
+2019-11-10 13:31:23
+Running NA-NGA calculation...
+  de_novo_output, Largest alignment = 369436, NA50 = 114050, NGA50 = 201381, LA50 = 61, LGA50 = 22
+Done.
+
+2019-11-10 13:31:24
+Running Genome analyzer...
+  NOTICE: No file with genes provided. Use the -G option if you want to specify it.
+  NOTICE: No file with operons provided. Use the -O option if you want to specify it.
+  de_novo_output
+  Analysis is finished.
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding option to enable it.
+
+2019-11-10 13:31:28
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 1: Creating Icarus viewers...
+Done
+
+2019-11-10 13:31:28
+RESULTS:
+  Text versions of total report are saved to /tmp/quast_results/results_2019_11_10_13_30_47/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /tmp/quast_results/results_2019_11_10_13_30_47/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) saved to /tmp/quast_results/results_2019_11_10_13_30_47/report.html
+  Icarus (contig browser) is saved to /tmp/quast_results/results_2019_11_10_13_30_47/icarus.html
+  Log saved to /tmp/quast_results/results_2019_11_10_13_30_47/quast.log
+
+Finished: 2019-11-10 13:31:28
+Elapsed time: 0:00:41.145302
+NOTICEs: 5; WARNINGs: 2; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

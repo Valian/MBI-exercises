@@ -2,7 +2,7 @@
 
 from subprocess import call
 
-cmd = 'docker run --rm -v /tmp/mbi:/tmp -w /tmp wkusmirek/dnaasm dnaasm -assembly'.split(' ')
+cmd = 'docker run --rm -v mbi:/tmp -w /tmp wkusmirek/dnaasm dnaasm -assembly'.split(' ')
 params = [
     '-k', '55',          	 	  	# wymiar grafu de Bruijn'a: 55
     '-genome_length', '5369772',     	  	# dlugosc genomu, liczba nukleotydow w badanej sekwencji DNA bakterii

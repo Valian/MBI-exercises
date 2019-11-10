@@ -1,4 +1,8 @@
 #!/bin/env bash
-mkdir -p /tmp/mbi
-wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/010/525/GCF_000010525.1_ASM1052v1/GCF_000010525.1_ASM1052v1_genomic.fna.gz
-mv GCF_000010525.1_ASM1052v1_genomic.fna.gz /tmp/mbi/sample_genome.fna.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/001/189/295/GCF_001189295.1_ASM118929v1/GCF_001189295.1_ASM118929v1_genomic.fna.gz -O sample_genome.fna.gz
+
+docker run -v mbi:/data --name helper busybox true
+docker cp sample_genome.fna.gz helper:/data
+docker rm -f helper
+
+rm sample_genome.fna.gz

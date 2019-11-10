@@ -1,0 +1,6 @@
+PROGRESS:
+53%
+78%
+100%
+
+Done. Result stored in file: de_novo_output

@@ -1,8 +1,9 @@
 #!/bin/env python3
+# coding=utf-8
 
 from subprocess import call
 
-cmd = 'docker run --rm -v /tmp/mbi:/tmp -w /tmp wkusmirek/pirs pirs simulate'.split(' ')
+cmd = 'docker run --rm -v mbi:/tmp -w /tmp wkusmirek/pirs pirs simulate'.split(' ')
 params = [
     '--coverage', '50',          # pokrycie genomy odczytami: 50x
     '--insert-len-mean', '400',  # odległość pomiędzy sparowanymi końcami (average length of inserts) 400 bp
