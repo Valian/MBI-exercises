@@ -1,0 +1,123 @@
+\documentclass[a4paper]{article}
+\usepackage[a4paper,  margin=1.0in]{geometry}
+
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{hyperref}
+
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+
+\title{Ćwiczenie nr 1 z MBI, assembling DNA de-novo}
+\author{Kinga Kimnes, Jakub Skałecki}
+\maketitle
+
+\section{Ogólne informacje}
+
+Do przeprowadzenia doświadczenia wykorzystano genom referencyjny bakterii śluzowej Chondromyces crocatus, którego długość wyniosła 11388132 bp.
+
+
+\section{Generowanie odczytów}
+
+Przy użyciu aplikacji pIRS(Profile-based Illumina pair-end Reads Simulator) wygenerowano zestaw odczytów sekwencji genomu.
+
+\begin{verbatim}
+[pIRS] Bases in reference sequences:    11388132
+[pIRS] Read pairs simulated:            2847033
+[pIRS] Bases in reads:                  569406600
+[pIRS] Coverage:                        50.00
+[pIRS] Substitution error count:        7052256
+[pIRS] Average substitution error rate: 1.239%
+[pIRS] Insertion count:                 2525
+[pIRS] Deletion count:                  6056
+[pIRS] Average insertion rate:          0.00044%
+[pIRS] Average deletion rate:           0.00106%
+[pIRS] Average insertion length:        1.07
+[pIRS] Average deletion length:         1.03
+[pIRS] Fragments affected by GC bias:   69.08%
+[pIRS] Bases masked by EAMSS algorithm: 0
+\end{verbatim}
+
+\section{Assembling de novo}
+
+W dalszej kolejności, na podstawie zasymulowanych odczytów, dokonano asemblacji "de novo" sekwencji  z wykorzystaniem narzędzia dnaasm.
+Jej oceny dokonano przy użyciu narzędzia quast (uzyskany raport - tabela \ref{fig:table1}).
+
+Kontigi o długości powyżej 5000bp stanowią najmniej liczny przedział - ich liczba wynosi 155. Najdłuższy wskazany kontig ma długość 377722 bp.
+
+Zawartość nukleotydów G i C w uzyskanej sekwencji wynosi 68,66 (GC), co odbiega od wartości referencyjnej jedynie o 0,05 (Reference GC = 68,71).
+
+Część logów z assemblingu:
+\begin{verbatim}
+[2019-Nov-10 13:04:37.209073] [info] - num of sequences: 3185
+[2019-Nov-10 13:04:37.209112] [info] - sum: 23330999
+[2019-Nov-10 13:04:37.209121] [info] - max: 377722
+[2019-Nov-10 13:04:37.209131] [info] - average: 7325.274902
+[2019-Nov-10 13:04:37.209138] [info] - median: 148.000000
+[2019-Nov-10 13:04:37.209145] [info] - N50: 118698
+\end{verbatim}
+
+\section {Zawartość pliku report.txt:}
+\begin{table}[ht]
+\begin{center}
+\caption{All statistics are based on contigs of size $\geq$ 500 bp, unless otherwise noted (e.g., "\# contigs ($\geq$ 0 bp)" and "Total length ($\geq$ 0 bp)" include all contigs).
+\label{fig:table1}
+}
+\begin{tabular}{|l*{1}{|r}|}
+\hline
+Assembly & de\_novo\_output \\ \hline
+\# contigs ($\geq$ 0 bp) & 3185 \\ \hline
+\# contigs ($\geq$ 1000 bp) & 388 \\ \hline
+\# contigs ($\geq$ 5000 bp) & 304 \\ \hline
+\# contigs ($\geq$ 10000 bp) & 258 \\ \hline
+\# contigs ($\geq$ 25000 bp) &  216\\ \hline
+\# contigs ($\geq$ 50000 bp) & 155 \\ \hline
+Total length ($\geq$ 0 bp) & 23330999 \\ \hline
+Total length ($\geq$ 1000 bp) & 22891314  \\ \hline
+Total length ($\geq$ 5000 bp) & 22677669 \\ \hline
+Total length ($\geq$ 10000 bp) & 22353298 \\ \hline
+Total length ($\geq$ 25000 bp) & 21697226 \\ \hline
+Total length ($\geq$ 50000 bp) & 19504676\\ \hline
+\# contigs & 422 \\ \hline
+Largest contig & 377722 \\ \hline
+Total length  & 22915670 \\ \hline
+Reference length & 11388132 \\ \hline
+GC (\%) & 68.66 \\ \hline
+Reference GC (\%) & 68.71 \\ \hline
+N50 & 118995  \\ \hline
+NG50 & 210841 \\ \hline
+N75  & 72352  \\ \hline
+NG75 & 169742 \\ \hline
+L50 & 57 \\ \hline
+LG50 & 21 \\ \hline
+L75 & 116 \\ \hline
+LG75 & 37 \\ \hline
+\# misassemblies & 10 \\ \hline
+\# misassembled contigs & 10 \\ \hline
+Misassembled contigs length & 821997 \\ \hline
+\# local misassemblies & 705 \\ \hline
+\# unaligned mis. contigs & 1 \\ \hline
+\# unaligned contigs & 0 + 61 part \\ \hline
+Unaligned length & 225334 \\ \hline
+Genome fraction (\%) & 98.318 \\ \hline
+Duplication ratio & 2.027  \\ \hline
+\# N's per 100 kbp & 2263.76  \\ \hline
+\# mismatches per 100 kbp & 3.05 \\ \hline
+\# indels per 100 kbp & 12.00 \\ \hline
+Largest alignment & 369436 \\ \hline
+Total aligned length & 22421453 \\ \hline
+NA50 & 114050  \\ \hline
+NGA50 & 201381 \\ \hline
+NA75 & 65918 \\ \hline
+NGA75 & 158761 \\ \hline
+LA50 & 61 \\ \hline
+LGA50 & 22 \\ \hline
+LA75 & 123 \\ \hline
+LGA75 & 38 \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+
+\end{document}
