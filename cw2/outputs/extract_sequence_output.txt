@@ -1,0 +1,3 @@
+found 3035 scaffolds
+found  184  scaffolds longer than  100000
+got scaffold 0000073 of length 149394

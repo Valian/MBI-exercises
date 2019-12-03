@@ -1,0 +1,733 @@
+STATUS: Parsing control files...
+STATUS: Processing and indexing input FASTA files...
+STATUS: Setting up database for any GFF3 input...
+A data structure will be created for you at:
+/tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore
+
+To access files for individual sequences use the datastore index:
+/tmp/single_scaffold.fa.maker.output/single_scaffold.fa_master_datastore_index.log
+
+STATUS: Now running MAKER...
+examining contents of the fasta file and run log
+
+
+
+--Next Contig--
+
+#---------------------------------------------------------------------
+Now starting the contig!!
+SeqID: HDID_scaffold0000073
+Length: 149394
+#---------------------------------------------------------------------
+
+
+setting up GFF3 output and fasta chunks
+doing repeat masking
+running  repeat masker.
+#--------- command -------------#
+Widget::RepeatMasker:
+cd /tmp/maker_jGwfFz; /usr/local/RepeatMasker/RepeatMasker /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.all.rb -species all -dir /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0 -pa 1
+#-------------------------------#
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.0
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.0 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.0.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.1
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.1 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.1.repeatrunner
+#-------------------------------#
+deleted:1 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.2
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.2 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.2.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.3
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.3 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.3.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.4
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.4 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.4.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.5
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.5 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.5.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.6
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.6 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.6.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.7
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.7 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.7.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.8
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.8 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.8.repeatrunner
+#-------------------------------#
+deleted:0 hits
+doing blastx repeats
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/te_proteins%2Efasta.mpi.10.9
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/te_proteins%2Efasta.mpi.10.9 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.te_proteins%2Efasta.repeatrunner.temp_dir/te_proteins%2Efasta.mpi.10.9.repeatrunner
+#-------------------------------#
+deleted:0 hits
+collecting blastx repeatmasking
+processing all repeats
+in cluster::shadow_cluster...
+...finished clustering.
+preparing masked sequence
+preparing ab-inits
+gathering ab-init output files
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.0
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.0 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.0.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.1
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.1 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.1.blastn
+#-------------------------------#
+deleted:1 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.2
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.2 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.2.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.3
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.3 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.3.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.4
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.4 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.4.blastn
+#-------------------------------#
+deleted:1 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.5
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.5 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.5.blastn
+#-------------------------------#
+deleted:1 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.6
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.6 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.6.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.7
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.7 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.7.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.8
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.8 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.8.blastn
+#-------------------------------#
+deleted:0 hits
+doing blastn of ESTs
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype nucl -in /tmp/maker_jGwfFz/0/blastprep/mRNA%2Efa.mpi.10.9
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastn:
+/usr/bin/blastn -db /tmp/maker_jGwfFz/mRNA%2Efa.mpi.10.9 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-10 -word_size 28 -reward 1 -penalty -5 -gapopen 5 -gapextend 5 -dbsize 1000 -searchsp 500000000 -num_threads 1 -lcase_masking -dust yes -soft_masking true -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.mRNA%2Efa.blastn.temp_dir/mRNA%2Efa.mpi.10.9.blastn
+#-------------------------------#
+deleted:0 hits
+collecting blastn reports
+in cluster::shadow_cluster...
+...finished clustering.
+polishig ESTs
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000755601-mRNA-1.for.1468-13155.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.1468-13155.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.1468-13155.HDID_0000755601-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000755701-mRNA-1.for.18378-38019.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.18378-38019.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.18378-38019.HDID_0000755701-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000755801-mRNA-1.for.37920-59724.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.37920-59724.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.37920-59724.HDID_0000755801-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000755901-mRNA-1.for.60993-68524.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.60993-68524.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.60993-68524.HDID_0000755901-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756001-mRNA-1.for.68549-70660.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.68549-70660.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.68549-70660.HDID_0000756001-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756101-mRNA-1.for.73132-77717.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.73132-77717.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.73132-77717.HDID_0000756101-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756201-mRNA-1.for.93318-95941.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93318-95941.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93318-95941.HDID_0000756201-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756301-mRNA-1.for.96496-100170.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.96496-100170.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.96496-100170.HDID_0000756301-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756401-mRNA-1.for.99897-108691.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.99897-108691.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.99897-108691.HDID_0000756401-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756501-mRNA-1.for.117971-135013.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.117971-135013.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.117971-135013.HDID_0000756501-mRNA-1.e.exonerate
+#-------------------------------#
+running  est2genome search.
+#--------- command -------------#
+Widget::exonerate::est2genome:
+/usr/bin/exonerate  -q /tmp/maker_jGwfFz/0/HDID_0000756601-mRNA-1.for.138470-140247.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.138470-140247.0.fasta -Q dna -T dna --model est2genome  --minintron 20 --maxintron 10000 --showcigar --percent 20 > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.138470-140247.HDID_0000756601-mRNA-1.e.exonerate
+#-------------------------------#
+cleaning blastn...
+in cluster::shadow_cluster...
+...finished clustering.
+in cluster::shadow_cluster...
+...finished clustering.
+cleaning clusters....
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+total clusters:10 now processing 0
+flattening EST clusters
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.0
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.0 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.0.blastx
+#-------------------------------#
+deleted:14 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.1
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.1 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.1.blastx
+#-------------------------------#
+deleted:12 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.2
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.2 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.2.blastx
+#-------------------------------#
+deleted:14 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.3
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.3 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.3.blastx
+#-------------------------------#
+deleted:10 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.4
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.4 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.4.blastx
+#-------------------------------#
+deleted:12 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.5
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.5 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.5.blastx
+#-------------------------------#
+deleted:11 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.6
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.6 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.6.blastx
+#-------------------------------#
+deleted:11 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.7
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.7 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.7.blastx
+#-------------------------------#
+deleted:9 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.8
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.8 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.8.blastx
+#-------------------------------#
+deleted:13 hits
+doing blastx of proteins
+formating database...
+#--------- command -------------#
+Widget::formater:
+/usr/local/bin/makeblastdb -dbtype prot -in /tmp/maker_jGwfFz/0/blastprep/protein%2Efa.mpi.10.9
+#-------------------------------#
+running  blast search.
+#--------- command -------------#
+Widget::blastx:
+/usr/bin/blastx -db /tmp/maker_jGwfFz/protein%2Efa.mpi.10.9 -query /tmp/maker_jGwfFz/0/HDID_scaffold0000073.0 -num_alignments 10000 -num_descriptions 10000 -evalue 1e-06 -dbsize 300 -searchsp 500000000 -num_threads 1 -seg yes -soft_masking true -lcase_masking -show_gis -out /tmp/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/76/80/HDID_scaffold0000073//theVoid.HDID_scaffold0000073/0/HDID_scaffold0000073.0.protein%2Efa.blastx.temp_dir/protein%2Efa.mpi.10.9.blastx
+#-------------------------------#
+deleted:13 hits
+collecting blastx reports
+in cluster::shadow_cluster...
+...finished clustering.
+polishing proteins
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000755601-mRNA-1.for.1468-13152.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.1468-13152.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.1468-13152.HDID_0000755601-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000028001-mRNA-1.for.24125-28879.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.24125-28879.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.24125-28879.HDID_0000028001-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000011101-mRNA-1.for.24125-28855.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.24125-28855.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.24125-28855.HDID_0000011101-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001053401-mRNA-1.for.35610-36529.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.35610-36529.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.35610-36529.HDID_0001053401-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000755701-mRNA-1.for.18378-38016.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.18378-38016.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.18378-38016.HDID_0000755701-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000203601-mRNA-1.for.31535-32532.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.31535-32532.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.31535-32532.HDID_0000203601-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001022901-mRNA-1.for.32635-33673.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.32635-33673.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.32635-33673.HDID_0001022901-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000358901-mRNA-1.for.32102-33162.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.32102-33162.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.32102-33162.HDID_0000358901-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001112101-mRNA-1.for.35299-36401.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.35299-36401.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.35299-36401.HDID_0001112101-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000755801-mRNA-1.for.37923-59724.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.37923-59724.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.37923-59724.HDID_0000755801-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000755901-mRNA-1.for.60996-68524.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.60996-68524.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.60996-68524.HDID_0000755901-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000336901-mRNA-1.for.65570-66663.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65570-66663.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65570-66663.HDID_0000336901-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001122001-mRNA-1.for.65383-66552.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65383-66552.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65383-66552.HDID_0001122001-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000455001-mRNA-1.for.65383-66690.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65383-66690.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65383-66690.HDID_0000455001-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000091701-mRNA-1.for.65185-66170.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65185-66170.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65185-66170.HDID_0000091701-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000567101-mRNA-1.for.65738-66678.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65738-66678.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.65738-66678.HDID_0000567101-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756001-mRNA-1.for.68549-70135.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.68549-70135.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.68549-70135.HDID_0000756001-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756101-mRNA-1.for.73132-77714.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.73132-77714.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.73132-77714.HDID_0000756101-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000411301-mRNA-1.for.93321-95932.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93321-95932.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93321-95932.HDID_0000411301-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001116401-mRNA-1.for.94941-95932.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94941-95932.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94941-95932.HDID_0001116401-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000683601-mRNA-1.for.94401-95499.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94401-95499.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94401-95499.HDID_0000683601-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001112101-mRNA-1.for.94415-95495.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94415-95495.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94415-95495.HDID_0001112101-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756201-mRNA-1.for.93318-95938.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93318-95938.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.93318-95938.HDID_0000756201-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000696201-mRNA-1.for.94500-95437.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94500-95437.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.94500-95437.HDID_0000696201-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756301-mRNA-1.for.96496-100167.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.96496-100167.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.96496-100167.HDID_0000756301-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756401-mRNA-1.for.99900-108691.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.99900-108691.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.99900-108691.HDID_0000756401-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000159801-mRNA-1.for.104444-105441.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.104444-105441.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.104444-105441.HDID_0000159801-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000652201-mRNA-1.for.115781-116757.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.115781-116757.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.115781-116757.HDID_0000652201-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000270301-mRNA-1.for.116432-117561.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116432-117561.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116432-117561.HDID_0000270301-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000753401-mRNA-1.for.116498-117561.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116498-117561.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116498-117561.HDID_0000753401-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001053401-mRNA-1.for.116627-117663.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116627-117663.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116627-117663.HDID_0001053401-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000650601-mRNA-1.for.116513-117561.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116513-117561.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116513-117561.HDID_0000650601-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000136501-mRNA-1.for.116598-117559.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116598-117559.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.116598-117559.HDID_0000136501-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756501-mRNA-1.for.117974-135013.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.117974-135013.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.117974-135013.HDID_0000756501-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0000756601-mRNA-1.for.138470-140244.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.138470-140244.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.138470-140244.HDID_0000756601-mRNA-1.p.exonerate
+#-------------------------------#
+running  exonerate search.
+#--------- command -------------#
+Widget::exonerate::protein2genome:
+/usr/bin/exonerate -q /tmp/maker_jGwfFz/0/HDID_0001006101-mRNA-1.for.141751-142724.0.fasta -t /tmp/maker_jGwfFz/0/HDID_scaffold0000073.141751-142724.0.fasta -Q protein -T dna -m protein2genome --softmasktarget  --percent 20 --showcigar  > /tmp/maker_jGwfFz/0/HDID_scaffold0000073.141751-142724.HDID_0001006101-mRNA-1.p.exonerate
+#-------------------------------#
+cleaning blastx...
+in cluster::shadow_cluster...
+...finished clustering.
+in cluster::shadow_cluster...
+...finished clustering.
+cleaning clusters....
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+ ...processing 0 of 5
+ ...processing 1 of 5
+ ...processing 2 of 5
+ ...processing 3 of 5
+ ...processing 4 of 5
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+ ...processing 0 of 3
+ ...processing 1 of 3
+ ...processing 2 of 3
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+ ...processing 0 of 4
+ ...processing 1 of 4
+ ...processing 2 of 4
+ ...processing 3 of 4
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+ ...processing 0 of 4
+ ...processing 1 of 4
+ ...processing 2 of 4
+ ...processing 3 of 4
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+total clusters:16 now processing 0
+in cluster::shadow_cluster...
+...finished clustering.
+in cluster::shadow_cluster...
+...finished clustering.
+cleaning clusters....
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+ ...processing 0 of 3
+ ...processing 1 of 3
+ ...processing 2 of 3
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+ ...processing 0 of 3
+ ...processing 1 of 3
+ ...processing 2 of 3
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+total clusters:14 now processing 0
+flattening protein clusters
+prepare section files
+processing the chunk divide
+processing contig output
+
+
+Maker is now finished!!!
+
+
+
+Start_time: 1575413624
+End_time:   1575413738
+Elapsed:    114
