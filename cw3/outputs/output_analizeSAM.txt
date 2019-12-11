@@ -1,0 +1,5 @@
+found 284312 mappings
+Average sequence length:
+75.51851135372408
+Sequence length stddev:
+1.1692119247739439

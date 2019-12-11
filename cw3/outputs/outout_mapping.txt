@@ -1,0 +1,29 @@
+[bwa_index] Pack FASTA... 2.01 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=498501242, availableWord=47075968
+[BWTIncConstructFromPacked] 10 iterations done. 76384698 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 142334426 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 200946714 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 253037450 characters processed.
+[BWTIncConstructFromPacked] 50 iterations done. 299331834 characters processed.
+[BWTIncConstructFromPacked] 60 iterations done. 340474362 characters processed.
+[BWTIncConstructFromPacked] 70 iterations done. 377037946 characters processed.
+[BWTIncConstructFromPacked] 80 iterations done. 409531690 characters processed.
+[BWTIncConstructFromPacked] 90 iterations done. 438408170 characters processed.
+[BWTIncConstructFromPacked] 100 iterations done. 464069642 characters processed.
+[BWTIncConstructFromPacked] 110 iterations done. 486873562 characters processed.
+[bwa_index] 136.57 seconds elapse.
+[bwa_index] Update BWT... 2.14 sec
+[bwa_index] Pack forward-only FASTA... 1.38 sec
+[bwa_index] Construct SA from BWT and Occ... 49.32 sec
+[main] Version: 0.7.15-r1140
+[main] CMD: bwa index chr1.fa
+[main] Real time: 195.981 sec; CPU: 191.453 sec
+[bwt_gen] Finished constructing BWT in 116 iterations.
+[M::bwa_idx_load_from_disk] read 0 ALT contigs
+[M::process] read 284259 sequences (21468824 bp)...
+[M::mem_process_seqs] Processed 284259 reads in 13.288 CPU sec, 3.505 real sec
+[main] Version: 0.7.15-r1140
+[main] CMD: bwa mem -t 4 chr1.fa coriell_chr1.fq
+[main] Real time: 4.795 sec; CPU: 13.680 sec
+
