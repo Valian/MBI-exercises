@@ -24,20 +24,16 @@ W ramach przeprowadzanego ćwiczenia wykorzystano plik FASTA zawierający fragme
 
 \section{Mapowanie}
 
-
-Początkowo dokonano indeksowania pliku FASTA poprzez zastosowanie programu BWA (Burrows-Wheeler Alignment Tool).
+Początkowo dokonano indeksowania pliku FASTA poprzez zastosowanie programu BWA (Burrows-Wheeler Alignment Tool ). 
 Jest on stosowany do mapowania sekwencji o małej rozbieżności względem duzego genomu referencyjnego, takiego jak genom ludzki.
-Pakiet BWA składa się z trzech algorytmów: BWA-backtrack, BWA-SW oraz BW-MEM, przy czym dla zapytań o wysokiej jakości zalecany jest ostatni z nich z uwagi na wydajność i dokładność.
+Pakiet BWA składa się z trzech algorytmów: BWA-backtrack, BWA-SW oraz BW-MEM, przy czym dla zapytan o wysokiej jakości zalecany jest ostatni z nich z uwagi na wydajność i dokładność.
 Następnie, za pomocą ostatniego ze wskazanych algorytmów - BWA-MEM, wygenerowano plik SAM (Sequence Alignment/Map) zawierający mapowania kolejnych sekwencji z pliku coriell\_chr1.fq na sekwencję referencyjną, którą stanowił plik chr1.fa (sekwencja chromosomu 1).
-
 Typowa (średnia) długość odczytu to 75.5bp, o odchyleniu standardowym równym około 1.17.
 W dalszej kolejności dokonano sortowania mapowań oraz wygenerowano plik BAM (Binary Alignment/Map - stanowiący binarny odpowiednik pliku SAM). Rozmiary plików wynosiły kolejno: FASTQ-57MB, SAM - 77MB, BAM - 14MB.
-
 Plik FASTQ zawiera sekwencje (odczyty) oraz zapisaną symbolicznie ocenę jakości dla każdego nukleotydu (ilość równa długości sekwencji). Plik SAM zawiera ponadto informacje o mapowaniu sekwencji na genom referencyjny, co czyni go większym.
 
-\section{Wizualizacja przykładowego wariantu w genie IQGAP3}
+\section{Wizualizacja w IGV oraz przykładowy wariant w genie IQGAP3}  
 
-Przykładowy wariant ma pozycję 156,498,673 i jest wariantem homozygotycznym. Zrzut ekranu znajduje się na rysunku \ref{fig:igv}.
 
 \begin{figure}[h]
     \centering
@@ -47,11 +43,12 @@ Przykładowy wariant ma pozycję 156,498,673 i jest wariantem homozygotycznym. Z
 \end{figure}
 
 
-\section{Wykrywanie wariantów}
+\section{Wykrywanie wariantów}  
+ Pozycja wybranego wariantu wynosi156.498.673. Genom refernecyjny wskazuje nukleotyd T, natomiast odczyt A.
+ Zrzut ekranu z programu IGV przedstawiono na rysunku \ref{fig:igv}.
+% TODO
 
-Ilość wariantów bez filtracji to 6050, po odfiltrowaniu wariantów z pokryciem mniejszym niż 11 zostało ich 241. Dalsza filtracja może odbyć się po np INFO/MQ - średnia jakość mapowania.
-
-\section{Adnotacje wariantów}
+\section{Adnotacje wariantów}  
 W wyniku przeprowadzonej za pomocą narzędzia Variant Effect Predictor adnotacji przefiltorwanego pliku VCF uzyskano wykres typu "pie chart" przedstawiający statystyki wariantów. Największy udział procentowy posiada intron\_variant (36\%). Odpowiadające mu wiersze zamieszczono w tabeli \ref{table:3lines}.
 
 \begin{table}[H]
@@ -76,7 +73,6 @@ W wyniku przeprowadzonej za pomocą narzędzia Variant Effect Predictor adnotacj
 \end{table}
 
 Jest to wariant w sekwencji kodującej (świadczy o tym wartość protein\_coding w kolumnie Exon) w pierwszym wierszu powyższego listingu.
-
 \section{Wnioski}
 Ćwiczenie polegało na analizie danych pozyskanych w trakcie resekwencjonowania fragmentu genomu człowieka. Przedmiotem badań był fragment sekwencji, dotyczący chromosomu pierwszego (chr1). Mapowanie danej sekwencji do sekwencji referencyjnej dostarczyło nam dodatkowych danych w postaci wykrytych wariantów. Dane z pliku SAM w sposób czytelny dla człowieka wizualizuje narzędzie IGV. Pozwala ono na sprawdzenie nie tylko faktu różnic w stosunku do genomu referencyjnego, ale także zmierzenie tej różnicy (liczba oznaczonych nukleotydów innych niż referencyjne, zsumowana dla wszystkich pokryć). Raport wygenerowany z filtrowanego pliku VCF poprzez narzędzie Variant Effect Predictor pozwolił dowiedzieć się o typie adnotowanych wariantów. Wiele z nich występuje w sekwencjach niekodujących - intronach (36\%) oraz transkryptach niekodujących (10\%). Spośród części kodujących, najwięcej jest wariantów synonimicznych (57\%), czyli takich, które kodują ten sam aminokwas. Jest to możliwe dlatego, że DNA jest "zdegenerowane", to znaczy istnieje kilka sekwencji (kodonów), które kodują ten sam aminokwas.
 \end{document}
