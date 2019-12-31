@@ -1,0 +1,648 @@
+
+R version 3.6.2 (2019-12-12) -- "Dark and Stormy Night"
+Copyright (C) 2019 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(data.table)
+> library(parallel)
+> library(RCurl)
+Loading required package: bitops
+> library(gdata)
+gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.
+
+gdata: Unable to load perl libaries needed by read.xls()
+gdata: to support 'XLSX' (Excel 2007+) files.
+
+gdata: Run the function 'installXLSXsupport()'
+gdata: to automatically download and install the perl
+gdata: libaries needed to support Excel XLS and XLSX formats.
+
+Attaching package: ‘gdata’
+
+The following objects are masked from ‘package:data.table’:
+
+    first, last
+
+The following object is masked from ‘package:stats’:
+
+    nobs
+
+The following object is masked from ‘package:utils’:
+
+    object.size
+
+The following object is masked from ‘package:base’:
+
+    startsWith
+
+> library(Hmisc)
+Loading required package: lattice
+Loading required package: survival
+Loading required package: Formula
+Loading required package: ggplot2
+
+Attaching package: ‘Hmisc’
+
+The following objects are masked from ‘package:base’:
+
+    format.pval, units
+
+> library(matrixStats)
+> library(DNAcopy)
+> library(GenomicRanges)
+Loading required package: stats4
+Loading required package: BiocGenerics
+
+Attaching package: ‘BiocGenerics’
+
+The following object is masked from ‘package:gdata’:
+
+    combine
+
+The following objects are masked from ‘package:parallel’:
+
+    clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, parApply, parCapply, parLapply,
+    parLapplyLB, parRapply, parSapply, parSapplyLB
+
+The following objects are masked from ‘package:stats’:
+
+    IQR, mad, sd, var, xtabs
+
+The following objects are masked from ‘package:base’:
+
+    anyDuplicated, append, as.data.frame, basename, cbind, colnames,
+    dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,
+    grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,
+    order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,
+    rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,
+    union, unique, unsplit, which, which.max, which.min
+
+Loading required package: S4Vectors
+
+Attaching package: ‘S4Vectors’
+
+The following objects are masked from ‘package:gdata’:
+
+    first, first<-
+
+The following objects are masked from ‘package:data.table’:
+
+    first, second
+
+The following object is masked from ‘package:base’:
+
+    expand.grid
+
+Loading required package: IRanges
+
+Attaching package: ‘IRanges’
+
+The following object is masked from ‘package:gdata’:
+
+    trim
+
+The following object is masked from ‘package:data.table’:
+
+    shift
+
+Loading required package: GenomeInfoDb
+> library(Rsubread)
+> library(WES.1KG.WUGSC)
+> library(CODEX)
+Loading required package: Rsamtools
+Loading required package: Biostrings
+Loading required package: XVector
+
+Attaching package: ‘Biostrings’
+
+The following objects are masked from ‘package:Hmisc’:
+
+    mask, translate
+
+The following object is masked from ‘package:base’:
+
+    strsplit
+
+Loading required package: BSgenome.Hsapiens.UCSC.hg19
+Loading required package: BSgenome
+Loading required package: rtracklayer
+
+Attaching package: ‘CODEX’
+
+The following object is masked from ‘package:BiocGenerics’:
+
+    normalize
+
+The following object is masked from ‘package:DNAcopy’:
+
+    segment
+
+> workDir="./"
+> 
+> #set number of available cores
+> cores <- 4
+> 
+> #------------------------Zde􏰁niuj nazw¦ projektu oraz utwórz katalog wyj±ciowy:
+> projectname <- "TGP99"
+> outputDir <- paste0(workDir,"codex_output/")
+> dir.create(outputDir)
+> 
+> 
+> 
+> #--------------------------------Zaaaduj wst¦pnie przeliczone dane o ga¦boko±ci pokrycia
+> # dla 99 próbek z 1000 Genomes i przygotuj dane dla chromosomu 20:
+> cfiles <- dir("/data/coverage/", "*bam.coverage*")
+> cdf <- rbindlist(mclapply(cfiles, function(f){
++   print(f);
++   df <- fread(paste0("/data/coverage/",f));
++   df$SampleName <- strsplit(f, "\\.")[[1]][1];df
++ },mc.cores=cores))
+[1] "NA06985.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA07051.mapped.ILLUMINA.bwa.CEU.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA11829.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11881.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11992.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12005.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA06986.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA12144.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12489.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12815.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18486.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18501.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA07347.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA18507.mapped.ILLUMINA.bwa.YRI.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11830.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18519.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA11918.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA18634.mapped.ILLUMINA.bwa.CHB.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA11994.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18642.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12043.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA07000.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18745.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12154.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18757.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12762.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18868.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA12872.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1][1] "NA18489.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+ "NA18874.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18502.mapped.ILLUMINA.bwa.YRI.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18956.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"[1] "NA18508.mapped.ILLUMINA.bwa.YRI.exome.20130415.bam.coverage_chr20.txt"
+
+[1] "NA18520.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA07357.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18964.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18639.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11831.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18643.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18997.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"[1] "NA11919.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+
+[1] "NA18747.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11995.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA07048.mapped.ILLUMINA.bwa.CEU.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA19003.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18853.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA12044.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18870.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA19092.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1][1] "NA18910.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+ "NA12156.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA19116.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18959.mapped.ILLUMINA.bwa.JPT.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA12812.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18965.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12873.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA10851.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1][1] "NA18998.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"
+ "NA18498.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA11832.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA19005.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA11920.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA19093.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA12003.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18504.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA19130.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA12045.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA18510.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA12234.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18522.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA12813.mapped.ILLUMINA.bwa.CEU.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18640.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA12878.mapped.ILLUMINA.bwa.CEU.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA18645.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18499.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+[1] "NA18748.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18856.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18505.mapped.ILLUMINA.bwa.YRI.exome.20130415.bam.coverage_chr20.txt"
+[1][1] "NA18871.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt" "NA18516.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+
+[1] "NA18912.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18631.mapped.ILLUMINA.bwa.CHB.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18960.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18641.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18978.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18740.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA18999.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18749.mapped.ILLUMINA.bwa.CHB.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA19007.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18867.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA19099.mapped.ILLUMINA.bwa.YRI.exome.20130422.bam.coverage_chr20.txt"
+[1] "NA19172.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18873.mapped.ILLUMINA.bwa.YRI.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18953.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18961.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA18980.mapped.ILLUMINA.bwa.JPT.exome.20130415.bam.coverage_chr20.txt"
+[1] "NA19000.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA19012.mapped.ILLUMINA.bwa.JPT.exome.20120522.bam.coverage_chr20.txt"
+[1] "NA19102.mapped.ILLUMINA.bwa.YRI.exome.20121211.bam.coverage_chr20.txt"
+> colnames(cdf) <- c("Chr", "Start", "Stop", "ReadCount", "SampleName")
+> cdf <- cdf[order(cdf$SampleName, cdf$Chr, cdf$Start, cdf$Stop),]
+> dim(cdf)
+[1] 465498      5
+> #[1] 465498        5
+> head(cdf)
+   Chr  Start   Stop ReadCount SampleName
+1:  20  68319  68439       103    NA06985
+2:  20  76611  77091       129    NA06985
+3:  20 123208 123358        69    NA06985
+4:  20 125995 126389       105    NA06985
+5:  20 138119 138269        37    NA06985
+6:  20 139359 139719       156    NA06985
+> #   Chr  Start   Stop ReadCount SampleName
+> #1:  20  68319  68439
+> #2:  20  76611  77091
+> #3:  20 123208 123358
+> #4:  20 125995 126389
+> #5:  20 138119 138269
+> #6:  20 139359 139719
+> bedFile <- paste0("/data/bed/20130108.exome.targets.bed")
+> sampname <- unique(cdf$SampleName)
+> chr <- "20"
+> targetsChr <-  cdf[which(cdf$Chr==chr & cdf$SampleName == cdf$SampleName[1]),
++                    c("Chr", "Start",  "Stop")]
+> selChr <- cdf[which(cdf$Chr==chr),]
+> Y <- t(do.call(rbind,lapply(sampname,
++                             function(s){selChr$ReadCount [which(selChr$SampleName == s)]})))
+> colnames(Y) <- sampname
+> rownames(Y) <- 1:nrow(Y)
+> dim(Y)
+[1] 4702   99
+> #103    NA06985
+> #129    NA06985
+> #69    NA06985
+> #105    NA06985
+> #37    NA06985
+> #156    NA06985
+> #4
+> #[1] 4702   99
+> dim(targetsChr)
+[1] 4702    3
+> #[1] 4702    3
+> ref <- IRanges(start = targetsChr$Start, end = targetsChr$Stop)
+> gc <- getgc(chr, ref)
+> mapp <- getmapp(chr, ref)
+> 
+> 
+> 
+> 
+> #-------------------------------------------------Przeprowad1 kontrol¦ jako±ci:
+> mapp_thresh <- 0.9 # remove exons with mapability < 0.9
+> cov_thresh_from <- 20 # remove exons covered by less than 20 reads
+> cov_thresh_to <- 4000 #  remove exons covered by more than 4000 reads
+> length_thresh_from <- 20 # remove exons of size < 20
+> length_thresh_to <- 2000 # remove exons of size > 2000
+> gc_thresh_from <- 30 # remove exons with GC < 20
+> gc_thresh_to <- 70 # or GC > 80
+> qcObj <- qc(Y, sampname, chr, ref, mapp, gc,
++             cov_thresh = c(cov_thresh_from, cov_thresh_to),
++             length_thresh = c(length_thresh_from, length_thresh_to),
++             mapp_thresh = mapp_thresh,
++             gc_thresh = c(gc_thresh_from, gc_thresh_to))
+Excluded 279 exons due to extreme coverage.
+Excluded 18 exons due to extreme exonic length.
+Excluded 22 exons due to extreme mappability.
+Excluded 324 exons due to extreme GC content.
+After taking union, excluded 472 out of 4702 exons in QC.
+> Y_qc <- qcObj$Y_qc; sampname_qc <- qcObj$sampname_qc; gc_qc <- qcObj$gc_qc
+> mapp_qc <- qcObj$mapp_qc; ref_qc <- qcObj$ref_qc; qcmat <- qcObj$qcmat
+> #Ile eksonów (regionów) zostaao usuni¦tych w wyniku kontroli jako±ci?
+> #  Ile eksonów (regionów) b¦dzie usuni¦tych je»eli zmienimy progi odci¦cia za- warto±ci GC (gc_thresh_from, gc_thresh_to)? Podaj wynik dla wybranych przez Ciebie progów.
+> 
+> 
+> 
+> 
+> #-----------------------------------------------Przeprowad1 normalizacj¦ ga¦boko±ci pokrycia oraz segmentacj¦:
+> normObj <- normalize(Y_qc, gc_qc, K = 1:9)
+k = 1
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =4.22e-05
+Iteration 2	beta diff =0.041	f(GC) diff =2.36e-10
+			hhat diff =2.69e-05
+Iteration 3	beta diff =0.000925	f(GC) diff =1.27e-11
+			hhat diff =2.15e-05
+Iteration 4	beta diff =0.000132	f(GC) diff =4.06e-12
+			hhat diff =1.92e-05
+Iteration 5	beta diff =8.91e-05	f(GC) diff =3.13e-12
+			hhat diff =1.78e-05
+Stop at Iteration 5.
+AIC1 = 705090423.063
+BIC1 = 705043041.824
+RSS1 = 478.516
+
+k = 2
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.0202
+			hhat diff =7.93e-06
+Iteration 2	beta diff =0.0407	f(GC) diff =2.56e-10
+			hhat diff =0.0202
+			hhat diff =1.04e-05
+Iteration 3	beta diff =0.000856	f(GC) diff =1.39e-11
+			hhat diff =0.0202
+			hhat diff =1.17e-05
+Iteration 4	beta diff =0.000132	f(GC) diff =4.91e-12
+			hhat diff =0.0201
+			hhat diff =1.27e-05
+Iteration 5	beta diff =7.58e-05	f(GC) diff =3.58e-12
+			hhat diff =0.0201
+			hhat diff =1.32e-05
+Stop at Iteration 5.
+AIC2 = 705234592.872
+BIC2 = 705139830.394
+RSS2 = 386.092
+
+k = 3
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.0267
+			hhat diff =3.55e-05
+Iteration 2	beta diff =0.0396	f(GC) diff =2.53e-10
+			hhat diff =0.0137
+			hhat diff =3.95e-05
+Iteration 3	beta diff =0.000834	f(GC) diff =1.48e-11
+			hhat diff =0.0137
+			hhat diff =3.71e-05
+Iteration 4	beta diff =0.000134	f(GC) diff =5.34e-12
+			hhat diff =0.0137
+			hhat diff =3.11e-05
+Iteration 5	beta diff =7.4e-05	f(GC) diff =3.98e-12
+			hhat diff =0.0136
+			hhat diff =2.4e-05
+Stop at Iteration 5.
+AIC3 = 705308392.301
+BIC3 = 705166248.585
+RSS3 = 331.461
+
+k = 4
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.00149
+			hhat diff =6.46e-05
+Iteration 2	beta diff =0.0376	f(GC) diff =2.56e-10
+			hhat diff =0.000794
+			hhat diff =3.49e-05
+Iteration 3	beta diff =0.000861	f(GC) diff =1.52e-11
+			hhat diff =0.000478
+			hhat diff =3.36e-05
+Iteration 4	beta diff =0.000142	f(GC) diff =5.25e-12
+			hhat diff =0.000369
+			hhat diff =3.53e-05
+Iteration 5	beta diff =6.68e-05	f(GC) diff =3.28e-12
+			hhat diff =0.000431
+			hhat diff =3.98e-05
+Stop at Iteration 5.
+AIC4 = 705369458.163
+BIC4 = 705179933.207
+RSS4 = 290.785
+
+k = 5
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.00253
+			hhat diff =0.0161
+			hhat diff =1.74e-05
+Iteration 2	beta diff =0.0362	f(GC) diff =2.59e-10
+			hhat diff =0.00817
+			hhat diff =3.56e-05
+Iteration 3	beta diff =0.00084	f(GC) diff =1.59e-11
+			hhat diff =0.000433
+			hhat diff =0.00811
+			hhat diff =7.09e-06
+Iteration 4	beta diff =0.000138	f(GC) diff =5.02e-12
+			hhat diff =0.00036
+			hhat diff =0.00811
+			hhat diff =8.21e-06
+Iteration 5	beta diff =6.13e-05	f(GC) diff =3.14e-12
+			hhat diff =0.016
+			hhat diff =0.0162
+			hhat diff =9.81e-06
+Stop at Iteration 5.
+AIC5 = 705395228.811
+BIC5 = 705158322.616
+RSS5 = 268.828
+
+k = 6
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.0134
+			hhat diff =0.0135
+			hhat diff =3.22e-05
+Iteration 2	beta diff =0.0356	f(GC) diff =2.72e-10
+			hhat diff =0.0266
+			hhat diff =2.85e-05
+Iteration 3	beta diff =0.000953	f(GC) diff =2.16e-11
+			hhat diff =0.0267
+			hhat diff =3.37e-05
+Iteration 4	beta diff =0.00014	f(GC) diff =5.53e-12
+			hhat diff =0.0267
+			hhat diff =5.32e-05
+Iteration 5	beta diff =6.64e-05	f(GC) diff =3.68e-12
+			hhat diff =0.0136
+			hhat diff =0.0135
+			hhat diff =0.0135
+			hhat diff =3e-06
+Stop at Iteration 5.
+AIC6 = 705411665.325
+BIC6 = 705127377.892
+RSS6 = 257.155
+
+k = 7
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.012
+			hhat diff =0.00731
+			hhat diff =0.0117
+			hhat diff =0.0112
+			hhat diff =0.000104
+			hhat diff =3.96e-05
+Stop at Iteration 1.
+AIC7 = 703651669.423
+BIC7 = 703320000.751
+RSS7 = 982.082
+
+k = 8
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.0163
+			hhat diff =0.000641
+			hhat diff =0.0109
+			hhat diff =0.0101
+			hhat diff =3.17e-05
+Stop at Iteration 1.
+AIC8 = 703665434.212
+BIC8 = 703286384.301
+RSS8 = 966.906
+
+k = 9
+Iteration 1	beta diff =0.453	f(GC) diff =6.07e-08
+			hhat diff =0.014
+			hhat diff =0.00941
+			hhat diff =0.0094
+			hhat diff =0.00904
+			hhat diff =0.00451
+			hhat diff =0.00897
+			hhat diff =4.22e-05
+Stop at Iteration 1.
+AIC9 = 703671660.661
+BIC9 = 703245229.511
+RSS9 = 958.339
+
+> Yhat <- normObj$Yhat; AIC <- normObj$AIC; BIC <- normObj$BIC
+> RSS <- normObj$RSS; K <- normObj$K
+> optK <- choiceofK(AIC, BIC, RSS, K,
++                   filename = paste(projectname, "_", chr, "_choiceofK", ".pdf", sep = ""))
+> finalcall <- CODEX::segment(Y_qc, Yhat, optK = optK,
++                             K = K, sampname_qc,
++                             ref_qc, chr, lmax = 200,
++                             mode = "integer")
+Segmenting sample 1: NA06985.
+Segmenting sample 2: NA06986.
+Segmenting sample 3: NA07000.
+Segmenting sample 4: NA07048.
+Segmenting sample 5: NA07051.
+Segmenting sample 6: NA07347.
+Segmenting sample 7: NA07357.
+Segmenting sample 8: NA10851.
+Segmenting sample 9: NA11829.
+Segmenting sample 10: NA11830.
+Segmenting sample 11: NA11831.
+Segmenting sample 12: NA11832.
+Segmenting sample 13: NA11881.
+Segmenting sample 14: NA11918.
+Segmenting sample 15: NA11919.
+Segmenting sample 16: NA11920.
+Segmenting sample 17: NA11992.
+Segmenting sample 18: NA11994.
+Segmenting sample 19: NA11995.
+Segmenting sample 20: NA12003.
+Segmenting sample 21: NA12005.
+Segmenting sample 22: NA12043.
+Segmenting sample 23: NA12044.
+Segmenting sample 24: NA12045.
+Segmenting sample 25: NA12144.
+Segmenting sample 26: NA12154.
+Segmenting sample 27: NA12156.
+Segmenting sample 28: NA12234.
+Segmenting sample 29: NA12489.
+Segmenting sample 30: NA12762.
+Segmenting sample 31: NA12812.
+Segmenting sample 32: NA12813.
+Segmenting sample 33: NA12815.
+Segmenting sample 34: NA12872.
+Segmenting sample 35: NA12873.
+Segmenting sample 36: NA12878.
+Segmenting sample 37: NA18486.
+Segmenting sample 38: NA18489.
+Segmenting sample 39: NA18498.
+Segmenting sample 40: NA18499.
+Segmenting sample 41: NA18501.
+Segmenting sample 42: NA18502.
+Segmenting sample 43: NA18504.
+Segmenting sample 44: NA18505.
+Segmenting sample 45: NA18507.
+Segmenting sample 46: NA18508.
+Segmenting sample 47: NA18510.
+Segmenting sample 48: NA18516.
+Segmenting sample 49: NA18519.
+Segmenting sample 50: NA18520.
+Segmenting sample 51: NA18522.
+Segmenting sample 52: NA18631.
+Segmenting sample 53: NA18634.
+Segmenting sample 54: NA18639.
+Segmenting sample 55: NA18640.
+Segmenting sample 56: NA18641.
+Segmenting sample 57: NA18642.
+Segmenting sample 58: NA18643.
+Segmenting sample 59: NA18645.
+Segmenting sample 60: NA18740.
+Segmenting sample 61: NA18745.
+Segmenting sample 62: NA18747.
+Segmenting sample 63: NA18748.
+Segmenting sample 64: NA18749.
+Segmenting sample 65: NA18757.
+Segmenting sample 66: NA18853.
+Segmenting sample 67: NA18856.
+Segmenting sample 68: NA18867.
+Segmenting sample 69: NA18868.
+Segmenting sample 70: NA18870.
+Segmenting sample 71: NA18871.
+Segmenting sample 72: NA18873.
+Segmenting sample 73: NA18874.
+Segmenting sample 74: NA18910.
+Segmenting sample 75: NA18912.
+Segmenting sample 76: NA18953.
+Segmenting sample 77: NA18956.
+Segmenting sample 78: NA18959.
+Segmenting sample 79: NA18960.
+Segmenting sample 80: NA18961.
+Segmenting sample 81: NA18964.
+Segmenting sample 82: NA18965.
+Segmenting sample 83: NA18978.
+Segmenting sample 84: NA18980.
+Segmenting sample 85: NA18997.
+Segmenting sample 86: NA18998.
+Segmenting sample 87: NA18999.
+Segmenting sample 88: NA19000.
+Segmenting sample 89: NA19003.
+Segmenting sample 90: NA19005.
+Segmenting sample 91: NA19007.
+Segmenting sample 92: NA19012.
+Segmenting sample 93: NA19092.
+Segmenting sample 94: NA19093.
+Segmenting sample 95: NA19099.
+Segmenting sample 96: NA19102.
+Segmenting sample 97: NA19116.
+Segmenting sample 98: NA19130.
+Segmenting sample 99: NA19172.
+> finalcall <- data.frame(finalcall, stringsAsFactors=F)
+> finalcall$targetCount <- as.numeric(finalcall$ed_exon) - as.numeric(finalcall$st_exon)
+> 
+> 
+> plotCall <- function(calls,i , Y_qc, Yhat_opt){
++   startIdx <- as.numeric(calls$st_exon[i])
++   stopIdx <- as.numeric(calls$ed_exon[i])
++   sampleName <- calls$sample_name[i]
++   wd <- 20
++   startPos <- max(1,(startIdx-wd))
++   stopPos <- min((stopIdx+wd), nrow(Y_qc))
++   selQC <- Y_qc[startPos:stopPos,]
++   selQC[selQC ==0] <- 0.00001
++   selYhat <- Yhat_opt[startPos:stopPos,]
++   matplot(matrix(rep(startPos:stopPos, ncol(selQC)),
++                  ncol=ncol(selQC)), log(selQC/selYhat,2),
++           type="l",lty=1, col="dimgrey",  lwd=1,
++           xlab="exon nr", ylab="logratio(Y/Yhat)")
++   lines(startPos:stopPos,log( selQC[,sampleName]/ selYhat[,sampleName],2), lwd=3, col="red")
++ }
+> cnvId <- 1    # indeks zmiany dla której zostanie sporz¡dzony wykres
+> plotCall(finalcall, cnvId, Y_qc, Yhat[[optK]])
+> 
