@@ -75,8 +75,8 @@ cov_thresh_from <- 20 # remove exons covered by less than 20 reads
 cov_thresh_to <- 4000 #  remove exons covered by more than 4000 reads
 length_thresh_from <- 20 # remove exons of size < 20
 length_thresh_to <- 2000 # remove exons of size > 2000
-gc_thresh_from <- 30 # remove exons with GC < 20
-gc_thresh_to <- 70 # or GC > 80
+gc_thresh_from <- 25 # remove exons with GC < 20
+gc_thresh_to <- 75 # or GC > 80
 qcObj <- qc(Y, sampname, chr, ref, mapp, gc,
             cov_thresh = c(cov_thresh_from, cov_thresh_to),
             length_thresh = c(length_thresh_from, length_thresh_to),
