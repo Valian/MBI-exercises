@@ -102,7 +102,7 @@ finalcall <- CODEX::segment(Y_qc, Yhat, optK = optK,
                             mode = "integer")
 finalcall <- data.frame(finalcall, stringsAsFactors=F)
 finalcall$targetCount <- as.numeric(finalcall$ed_exon) - as.numeric(finalcall$st_exon)
-
+finalcall
 
 plotCall <- function(calls,i , Y_qc, Yhat_opt){
   startIdx <- as.numeric(calls$st_exon[i])
@@ -119,6 +119,8 @@ plotCall <- function(calls,i , Y_qc, Yhat_opt){
           type="l",lty=1, col="dimgrey",  lwd=1,
           xlab="exon nr", ylab="logratio(Y/Yhat)")
   lines(startPos:stopPos,log( selQC[,sampleName]/ selYhat[,sampleName],2), lwd=3, col="red")
+  dev.copy(png,'myplot.png')
+  dev.off()
 }
 cnvId <- 1    # indeks zmiany dla której zostanie sporz¡dzony wykres
 plotCall(finalcall, cnvId, Y_qc, Yhat[[optK]])
